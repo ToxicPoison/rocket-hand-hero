@@ -24,10 +24,10 @@ func _process(delta):
 
 func _physics_process(delta):
 	# Add the gravity.
-	if not is_on_floor() and not flying and not grappling:
+	if not is_on_floor() and !flying:
 		velocity.y += gravity * delta
 	
-	if Input.is_action_pressed("jump") and is_on_floor(): #..... and ($Grapple and !$Grapple.grapple_out)
+	if Input.is_action_pressed("jump") and is_on_floor() and !grappling:
 		velocity.y = -JUMP_VELOCITY
 		if $Rocket:
 			$Rocket.jump_timer_start()

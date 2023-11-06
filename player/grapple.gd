@@ -3,50 +3,45 @@ extends Node2D
 const HOOK_PATH := preload("res://player/grapple_hook.tscn")
 @onready var player := get_parent()
 @onready var line := $Line2D
+@onready var cursor = $"../Cursor/Area2D"
 
 var grapple_speed := 800.0
+var grapple_force := 6.0
+var friction := 0.99
 var jump_time_delay := 0.2
 var can_grapple := true
-var grapple_out := false
-var grapple_hooked := false
+const RANGE := 64.0 * 8.0
 
-var hook : Object = null
+var target : Object = null
 
 func _process(delta):
-	if Input.is_action_just_pressed("grapple") and can_grapple and !player.is_on_floor():
-		delete_hook()
-		shoot_grapple()
-	if !Input.is_action_pressed("grapple") and grapple_hooked and hook:
-		delete_hook()
+	if Input.is_action_just_pressed("grapple"):
+		if target == null:
+			for area in cursor.get_overlapping_areas():
+				if area.is_in_group("grappleable") and area.get_parent().position.distance_to(player.position) < RANGE:
+					grapple(area.get_parent())
+					break
+	if target and Input.is_action_just_released("grapple"):
+		unhook()
 		
 func _physics_process(delta):
-	if grapple_out:
+	if target:
+		player.velocity += (target.position - player.position) * grapple_force * delta
+		player.velocity *= friction
 		line.visible = true
-		line.points[1] = hook.position - player.position
+		line.points[1] = target.position - player.position
 	else:
 		line.visible = false
+
+func grapple(obj):
+	target = obj
+	player.grappling = true
+	
+func unhook():
+	target = null
+	player.grappling = false
 
 func jump_timer_start():
 	can_grapple = false
 	await get_tree().create_timer(jump_time_delay).timeout
 	can_grapple = true
-
-func shoot_grapple():
-	hook = HOOK_PATH.instantiate()
-	player.get_parent().add_child(hook)
-	hook.grapple = self
-	hook.set_deferred("position", player.position)
-	hook.set_deferred("linear_velocity", player.mpos.normalized() * grapple_speed + player.velocity)
-	hook.body_entered.connect(on_hook_contact)
-	grapple_out = true
-
-func on_hook_contact(body):
-	hook.set_deferred("freeze", true)
-	grapple_hooked = true
-	
-func delete_hook():
-	if hook:
-		hook.queue_free()
-		hook = null
-	grapple_out = false
-	grapple_hooked = false

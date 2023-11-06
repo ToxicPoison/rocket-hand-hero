@@ -1,4 +1,4 @@
-extends RigidBody2D
+extends Node2D
 
 var grapple : Object
 const LIFETIME := 3.0

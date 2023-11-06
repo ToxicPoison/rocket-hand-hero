@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dbs4185ihbvwl"]
+[gd_scene load_steps=9 format=3 uid="uid://dbs4185ihbvwl"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_6tb6q"]
 [ext_resource type="Texture2D" uid="uid://qjmndbkufmvw" path="res://player/player.png" id="1_7tm1o"]
 [ext_resource type="Texture2D" uid="uid://bdxja4pg44rhg" path="res://player/crosshair.png" id="2_0p77d"]
 [ext_resource type="Script" path="res://player/rocket.gd" id="2_mt6ie"]
 [ext_resource type="Script" path="res://player/grapple.gd" id="5_aa6iw"]
+[ext_resource type="Texture2D" uid="uid://dv1vmq0kt87ga" path="res://player/grapple.png" id="6_it2xr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h7w6t"]
 size = Vector2(25, 54)
@@ -43,6 +44,9 @@ shape = SubResource("RectangleShape2D_18uwt")
 
 [node name="Grapple" type="Node2D" parent="."]
 script = ExtResource("5_aa6iw")
+
+[node name="Grapple2" type="Sprite2D" parent="Grapple"]
+texture = ExtResource("6_it2xr")
 
 [node name="Line2D" type="Line2D" parent="Grapple"]
 points = PackedVector2Array(0, 0, 0, 0)

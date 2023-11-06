@@ -12,7 +12,7 @@ var can_fire := true
 var smoothing = 0.05
 
 func _physics_process(delta):
-	if can_fire and !player.is_on_floor() and Input.is_action_pressed("fire"):
+	if can_fire and !player.is_on_floor() and Input.is_action_pressed("fire") and !player.grappling:
 		if force < MAX_FORCE:
 			force += delta * acceleration
 			if force > MAX_FORCE: force = MAX_FORCE
