@@ -20,6 +20,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _process(delta):
 	mpos = get_viewport().get_mouse_position() + (camera.get_screen_center_position() - position) - get_viewport_rect().size * 0.5
+	mpos *= Vector2.ONE / camera.zoom
 	cursor.position = mpos
 
 func _physics_process(delta):
@@ -45,3 +46,9 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	camera.position = velocity * 0.5 + mpos * 0.1
+
+func get_rocket():
+	return $Rocket
+
+func get_grapple():
+	return $Grapple

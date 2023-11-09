@@ -18,3 +18,7 @@ texture = ExtResource("1_nyau8")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 visible = false
 shape = SubResource("RectangleShape2D_k75td")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true

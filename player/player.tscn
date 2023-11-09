@@ -1,11 +1,23 @@
-[gd_scene load_steps=9 format=3 uid="uid://dbs4185ihbvwl"]
+[gd_scene load_steps=13 format=3 uid="uid://dbs4185ihbvwl"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_6tb6q"]
 [ext_resource type="Texture2D" uid="uid://qjmndbkufmvw" path="res://player/player.png" id="1_7tm1o"]
 [ext_resource type="Texture2D" uid="uid://bdxja4pg44rhg" path="res://player/crosshair.png" id="2_0p77d"]
 [ext_resource type="Script" path="res://player/rocket.gd" id="2_mt6ie"]
+[ext_resource type="Texture2D" uid="uid://pdrhtwwqdda3" path="res://normal sphere mask.png" id="3_2p3he"]
 [ext_resource type="Script" path="res://player/grapple.gd" id="5_aa6iw"]
 [ext_resource type="Texture2D" uid="uid://dv1vmq0kt87ga" path="res://player/grapple.png" id="6_it2xr"]
+
+[sub_resource type="Gradient" id="Gradient_ahlhs"]
+offsets = PackedFloat32Array(0, 0.083612, 0.237458, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.521065, 0.0561439, 0.201045, 1, 0.966204, 0.657175, 0.333298, 1, 0.737843, 0.80349, 1, 1)
+
+[sub_resource type="Curve" id="Curve_6o1tf"]
+_data = [Vector2(0, 0.136842), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_bla7j"]
+colors = PackedColorArray(1, 1, 1, 1, 0.25098, 0, 0, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h7w6t"]
 size = Vector2(25, 54)
@@ -17,7 +29,21 @@ texture_filter = 1
 script = ExtResource("1_6tb6q")
 
 [node name="Rocket" type="Node2D" parent="."]
+position = Vector2(0, -27)
 script = ExtResource("2_mt6ie")
+gradient = SubResource("Gradient_ahlhs")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Rocket"]
+amount = 128
+texture = ExtResource("3_2p3he")
+direction = Vector2(-1, 0)
+spread = 1.8
+gravity = Vector2(0, 0)
+initial_velocity_min = 450.0
+initial_velocity_max = 500.0
+scale_amount_curve = SubResource("Curve_6o1tf")
+color = Color(0.560784, 0.854902, 0.996078, 1)
+color_ramp = SubResource("Gradient_bla7j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -27)
@@ -46,6 +72,7 @@ shape = SubResource("RectangleShape2D_18uwt")
 script = ExtResource("5_aa6iw")
 
 [node name="Grapple2" type="Sprite2D" parent="Grapple"]
+visible = false
 texture = ExtResource("6_it2xr")
 
 [node name="Line2D" type="Line2D" parent="Grapple"]

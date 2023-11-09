@@ -35,6 +35,7 @@ func _physics_process(delta):
 
 func grapple(obj):
 	target = obj
+	target.refuel_player(player)
 	player.grappling = true
 	
 func unhook():
