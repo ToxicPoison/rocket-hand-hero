@@ -34,6 +34,7 @@ script = ExtResource("2_mt6ie")
 gradient = SubResource("Gradient_ahlhs")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Rocket"]
+emitting = false
 amount = 128
 texture = ExtResource("3_2p3he")
 direction = Vector2(-1, 0)

@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://features/fuel-node/fuel_node.gd" id="1_u40to"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k75td"]
-size = Vector2(128, 128)
+size = Vector2(104, 48)
 
 [node name="FuelNode" type="Node2D"]
 texture_filter = 1
@@ -12,11 +12,12 @@ script = ExtResource("1_u40to")
 
 [node name="Fuel-node" type="Sprite2D" parent="."]
 texture = ExtResource("1_nyau8")
+offset = Vector2(0, 64)
 
 [node name="Area2D" type="Area2D" parent="." groups=["grappleable"]]
+position = Vector2(0, 60)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-visible = false
 shape = SubResource("RectangleShape2D_k75td")
 
 [node name="Timer" type="Timer" parent="."]

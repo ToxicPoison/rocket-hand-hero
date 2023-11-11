@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://e2y7n5et7h8f"]
+
+[ext_resource type="Texture2D" uid="uid://db302bk6uxopm" path="res://features/fuel-sucker/fuel_sucker.png" id="1_emxic"]
+[ext_resource type="Script" path="res://features/fuel-sucker/fuel_sucker.gd" id="1_nl3gd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xodns"]
+size = Vector2(128, 256)
+
+[sub_resource type="Curve" id="Curve_orf1t"]
+_data = [Vector2(0, 1), 0.0, -0.768421, 0, 1, Vector2(1, 0.231579), -0.768421, 0.0, 1, 0]
+point_count = 2
+
+[node name="FuelSucker" type="Node2D"]
+z_index = 1
+texture_filter = 1
+script = ExtResource("1_nl3gd")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -128)
+shape = SubResource("RectangleShape2D_xodns")
+
+[node name="Line2D" type="Line2D" parent="."]
+show_behind_parent = true
+points = PackedVector2Array(0, 0, 0, -71.42)
+width_curve = SubResource("Curve_orf1t")
+default_color = Color(0.277344, 0.445313, 0.21875, 1)
+
+[node name="FuelSucker" type="Sprite2D" parent="."]
+texture = ExtResource("1_emxic")
+
+[node name="FuelSucker2" type="Sprite2D" parent="."]
+position = Vector2(0, -256)
+rotation = -3.14159
+texture = ExtResource("1_emxic")

@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bepcokc7w2qw2"]
+
+[ext_resource type="Texture2D" uid="uid://bki4xa5u2eo6u" path="res://features/swing-node/swing_node.png" id="1_ud8hn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mi3rj"]
+size = Vector2(110, 36)
+
+[node name="SwingNode" type="Node2D"]
+texture_filter = 1
+
+[node name="SwingNode" type="Sprite2D" parent="."]
+texture = ExtResource("1_ud8hn")
+offset = Vector2(0, 64)
+
+[node name="Area2D" type="Area2D" parent="." groups=["grappleable"]]
+position = Vector2(0, 23)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_mi3rj")

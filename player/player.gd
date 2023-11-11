@@ -1,4 +1,4 @@
-extends CharacterBody2D
+class_name Player extends CharacterBody2D
 
 @onready var cursor = $Cursor
 @onready var camera = $Camera2D
@@ -17,6 +17,10 @@ var accel := 0.2
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+var last_checkpoint : Object = null
+
+func _unhandled_input(event):
+	if event.is_action_pressed("respawn"): respawn()
 
 func _process(delta):
 	mpos = get_viewport().get_mouse_position() + (camera.get_screen_center_position() - position) - get_viewport_rect().size * 0.5
@@ -52,3 +56,12 @@ func get_rocket():
 
 func get_grapple():
 	return $Grapple
+
+func respawn():
+	velocity = Vector2.ZERO
+	if last_checkpoint:
+		position = last_checkpoint.position
+	else:
+		position = Vector2.ZERO
+	if $Grapple: $Grapple.unhook()
+	

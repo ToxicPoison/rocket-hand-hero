@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://2apd4uba4ayb"]
+
+[ext_resource type="Script" path="res://features/kill-wall/kill_flowers.gd" id="1_rfuh1"]
+[ext_resource type="Texture2D" uid="uid://c5xc1vrawk7gj" path="res://features/kill-wall/kill_flowers.png" id="2_wrr11"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v8ffl"]
+size = Vector2(108, 20)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v5ebw"]
+radius = 167.012
+
+[node name="KillFlowers" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_rfuh1")
+
+[node name="KillFlowers" type="Sprite2D" parent="."]
+z_index = 1
+texture = ExtResource("2_wrr11")
+hframes = 2
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_v8ffl")
+
+[node name="AngerArea" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AngerArea"]
+shape = SubResource("CircleShape2D_v5ebw")

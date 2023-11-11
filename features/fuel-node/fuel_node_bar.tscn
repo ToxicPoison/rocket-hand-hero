@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://hucckqgwvx77"]
+
+[ext_resource type="Texture2D" uid="uid://btk6mf5m62fi2" path="res://features/fuel-node/fuel-node_bar.png" id="1_wpsiu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cxa8r"]
+size = Vector2(96, 56)
+
+[node name="FuelNodeBar" type="Node2D"]
+texture_filter = 1
+
+[node name="Fuel-nodeBar" type="Sprite2D" parent="."]
+texture = ExtResource("1_wpsiu")
+offset = Vector2(-64, 0)
+
+[node name="Area2D" type="Area2D" parent="." groups=["grappleable"]]
+position = Vector2(-94, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_cxa8r")

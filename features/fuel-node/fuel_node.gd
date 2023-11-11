@@ -1,4 +1,4 @@
-extends Node2D
+class_name FuelNode extends Node2D
 
 @export var off_color = Color.AQUA
 @onready var timer := $Timer

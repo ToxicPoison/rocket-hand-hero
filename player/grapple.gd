@@ -18,24 +18,25 @@ func _process(delta):
 	if Input.is_action_just_pressed("grapple"):
 		if target == null:
 			for area in cursor.get_overlapping_areas():
-				if area.is_in_group("grappleable") and area.get_parent().position.distance_to(player.position) < RANGE:
-					grapple(area.get_parent())
+				if area.is_in_group("grappleable") and area.get_parent().global_position.distance_to(player.global_position) < RANGE:
+					grapple(area)
 					break
 	if target and Input.is_action_just_released("grapple"):
 		unhook()
 		
 func _physics_process(delta):
 	if target:
-		player.velocity += (target.position - player.position) * grapple_force * delta
+		player.velocity += (target.global_position - player.global_position) * grapple_force * delta
 		player.velocity *= friction
 		line.visible = true
-		line.points[1] = target.position - player.position
+		line.points[1] = target.global_position - player.global_position
 	else:
 		line.visible = false
 
 func grapple(obj):
 	target = obj
-	target.refuel_player(player)
+	if target.get_parent() is FuelNode:
+		target.get_parent().refuel_player(player)
 	player.grappling = true
 	
 func unhook():
