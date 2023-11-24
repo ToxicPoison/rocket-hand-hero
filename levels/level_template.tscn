@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://byo2jbqod50a5"]
+
+[node name="LevelTemplate" type="Node2D"]
+texture_filter = 1
+
+[node name="Tiles" type="Node2D" parent="."]
+texture_filter = 1
+
+[node name="Interactable" type="Node2D" parent="."]
+texture_filter = 1

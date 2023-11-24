@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var area = $Area2D
+@export var refueling : bool = true
 
 func _ready():
 	area.body_entered.connect(on_body_entered)

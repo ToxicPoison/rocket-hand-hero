@@ -26,6 +26,7 @@ size = Vector2(25, 54)
 
 [node name="Player" type="CharacterBody2D"]
 texture_filter = 1
+floor_snap_length = 3.0
 script = ExtResource("1_6tb6q")
 
 [node name="Rocket" type="Node2D" parent="."]
@@ -77,4 +78,4 @@ visible = false
 texture = ExtResource("6_it2xr")
 
 [node name="Line2D" type="Line2D" parent="Grapple"]
-points = PackedVector2Array(0, 0, 0, 0)
+points = PackedVector2Array(0, -27, 0, 0)

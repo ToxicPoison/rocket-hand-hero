@@ -64,4 +64,7 @@ func respawn():
 	else:
 		position = Vector2.ZERO
 	if $Grapple: $Grapple.unhook()
+	if $Rocket:
+		if (last_checkpoint and last_checkpoint.refueling) or !last_checkpoint: $Rocket.refuel()
+		else: $Rocket.fuel = 0.0
 	
