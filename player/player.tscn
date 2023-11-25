@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://dbs4185ihbvwl"]
+[gd_scene load_steps=14 format=3 uid="uid://dbs4185ihbvwl"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_6tb6q"]
 [ext_resource type="Texture2D" uid="uid://qjmndbkufmvw" path="res://player/player.png" id="1_7tm1o"]
 [ext_resource type="Texture2D" uid="uid://bdxja4pg44rhg" path="res://player/crosshair.png" id="2_0p77d"]
 [ext_resource type="Script" path="res://player/rocket.gd" id="2_mt6ie"]
 [ext_resource type="Texture2D" uid="uid://pdrhtwwqdda3" path="res://normal sphere mask.png" id="3_2p3he"]
+[ext_resource type="Script" path="res://player/camera.gd" id="4_o4o6o"]
 [ext_resource type="Script" path="res://player/grapple.gd" id="5_aa6iw"]
 [ext_resource type="Texture2D" uid="uid://dv1vmq0kt87ga" path="res://player/grapple.png" id="6_it2xr"]
 
@@ -52,8 +53,9 @@ position = Vector2(0, -27)
 shape = SubResource("RectangleShape2D_h7w6t")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position_smoothing_enabled = true
+top_level = true
 position_smoothing_speed = 2.0
+script = ExtResource("4_o4o6o")
 
 [node name="Player" type="Sprite2D" parent="."]
 texture = ExtResource("1_7tm1o")

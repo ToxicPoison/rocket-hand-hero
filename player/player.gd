@@ -43,13 +43,15 @@ func _physics_process(delta):
 		
 	if is_on_floor() and Input.is_action_pressed("walk") and !flying and !grappling:
 		target_speed = mpos.normalized().x * SPEED
+	elif Input.is_action_pressed("walk") and !flying:
+		velocity.x += mpos.normalized().x * SPEED * delta * 0.1
 		
 	if is_on_floor():
 		velocity.x = lerpf(velocity.x, target_speed, accel)
 		
 	move_and_slide()
 	
-	camera.position = velocity * 0.5 + mpos * 0.1
+	camera.ooffset = velocity * 0.5 + mpos * 0.1
 
 func get_rocket():
 	return $Rocket

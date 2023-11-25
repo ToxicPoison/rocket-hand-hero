@@ -2,8 +2,8 @@ extends Node2D
 
 @onready var player = get_parent()
 
-const DEF_FORCE := 500.0
-const MAX_FORCE := 1500.0
+const DEF_FORCE := 400.0
+const MAX_FORCE := 800.0
 var acceleration := 200.0
 @onready var force : float = DEF_FORCE
 var firing_time := 0.0
