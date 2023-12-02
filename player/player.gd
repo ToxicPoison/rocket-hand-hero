@@ -51,7 +51,7 @@ func _physics_process(delta):
 		
 	move_and_slide()
 	
-	camera.ooffset = velocity * 0.5 + mpos * 0.1
+	camera.ooffset = velocity * 0.1 + mpos * 0.05
 
 func get_rocket():
 	return $Rocket

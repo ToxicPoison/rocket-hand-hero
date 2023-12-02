@@ -13,11 +13,11 @@
 [ext_resource type="PackedScene" uid="uid://j8lmh7nrek1d" path="res://features/swing-node/swing_node_bar.tscn" id="9_4d46k"]
 [ext_resource type="Texture2D" uid="uid://57tdcboxgmui" path="res://levels/test/test-background.png" id="11_64msk"]
 
-[sub_resource type="Gradient" id="Gradient_s6i5k"]
+[sub_resource type="Gradient" id="Gradient_nes2t"]
 colors = PackedColorArray(0.943742, 0.876227, 0.931447, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_yn2x5"]
-gradient = SubResource("Gradient_s6i5k")
+gradient = SubResource("Gradient_nes2t")
 width = 1280
 height = 720
 fill_from = Vector2(1, 1)

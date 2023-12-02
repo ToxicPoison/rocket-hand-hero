@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6xr5gvepn1lt"]
+
+[ext_resource type="Shader" path="res://global/poly-terrain/terrain_outline.gdshader" id="1_7rnev"]
+[ext_resource type="Script" path="res://global/poly-terrain/polyterrains.gd" id="2_e40ac"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6pqie"]
+shader = ExtResource("1_7rnev")
+shader_parameter/offset = 3.0
+shader_parameter/line_color = Color(0, 0, 0, 1)
+shader_parameter/light_color = Color(1, 1, 1, 1)
+shader_parameter/light_dir = Vector2(0, -1)
+
+[node name="Polyterrains" type="CanvasGroup"]
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_6pqie")
+script = ExtResource("2_e40ac")

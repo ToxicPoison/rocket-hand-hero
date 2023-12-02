@@ -1,16 +1,18 @@
-[gd_scene load_steps=9 format=3 uid="uid://rvndxuyle1j"]
+[gd_scene load_steps=9 format=3 uid="uid://coxw011v6uaf8"]
 
 [ext_resource type="PackedScene" uid="uid://byo2jbqod50a5" path="res://levels/level_template.tscn" id="1_4bcro"]
-[ext_resource type="Shader" path="res://levels/test/terrain-test/terrain_outline.gdshader" id="2_626a2"]
-[ext_resource type="Script" path="res://levels/test/terrain-test/polyterrains.gd" id="3_bqxej"]
+[ext_resource type="Shader" path="res://global/poly-terrain/terrain_outline.gdshader" id="3_cfn8q"]
 [ext_resource type="Shader" path="res://levels/test/terrain-test/terrain.gdshader" id="3_nvkib"]
 [ext_resource type="Texture2D" uid="uid://dsgffr0jweirs" path="res://levels/test/terrain-test/test-terrain.png" id="4_iurrl"]
+[ext_resource type="Script" path="res://global/poly-terrain/polyterrains.gd" id="4_v2b2k"]
 [ext_resource type="PackedScene" uid="uid://dbs4185ihbvwl" path="res://player/player.tscn" id="6_ktojf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g4iot"]
-shader = ExtResource("2_626a2")
+shader = ExtResource("3_cfn8q")
 shader_parameter/offset = 2.5
 shader_parameter/line_color = Color(0, 0, 0, 1)
+shader_parameter/light_color = Color(1, 1, 1, 1)
+shader_parameter/light_dir = Vector2(0, -1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0i45s"]
 shader = ExtResource("3_nvkib")
@@ -24,7 +26,7 @@ position = Vector2(-35, -141)
 [node name="PolyTerrains" type="CanvasGroup" parent="Tiles" index="0"]
 texture_filter = 1
 material = SubResource("ShaderMaterial_g4iot")
-script = ExtResource("3_bqxej")
+script = ExtResource("4_v2b2k")
 
 [node name="Polygon2D" type="Polygon2D" parent="Tiles/PolyTerrains" index="0"]
 texture_filter = 1
