@@ -73,6 +73,7 @@ texture = ExtResource("2_0p77d")
 shape = SubResource("RectangleShape2D_18uwt")
 
 [node name="Grapple" type="Node2D" parent="."]
+position = Vector2(0, -60)
 script = ExtResource("5_aa6iw")
 
 [node name="Grapple2" type="Sprite2D" parent="Grapple"]

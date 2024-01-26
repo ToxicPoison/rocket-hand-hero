@@ -29,8 +29,10 @@ func _process(delta):
 	mpos *= Vector2.ONE / camera.zoom
 	cursor.position = mpos
 	
-	# Jump by clicking above the player
-	wanna_jump = Input.is_action_pressed("walk") and get_global_mouse_position().y < (position.y - 200)
+	# Jump by swiping up
+	const min_swipe_speed = 1000
+	wanna_jump = Input.is_action_pressed("walk") and Input.get_last_mouse_velocity().y < -min_swipe_speed
+	WatchList.watch("mouse vel", Input.get_last_mouse_velocity().y)
 	WatchList.watch("wanna_jump", wanna_jump)
 
 func _physics_process(delta):

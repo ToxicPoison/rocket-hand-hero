@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 
 var tracked_vars := {
 	"Example": 99
