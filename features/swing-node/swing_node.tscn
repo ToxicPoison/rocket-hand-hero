@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://bki4xa5u2eo6u" path="res://features/swing-node/swing_node.png" id="1_ud8hn"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mi3rj"]
-size = Vector2(110, 36)
+[sub_resource type="CircleShape2D" id="CircleShape2D_0cwss"]
+radius = 58.8558
 
 [node name="SwingNode" type="Node2D"]
 texture_filter = 1
@@ -16,4 +16,4 @@ offset = Vector2(0, 64)
 position = Vector2(0, 23)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("RectangleShape2D_mi3rj")
+shape = SubResource("CircleShape2D_0cwss")

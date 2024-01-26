@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://btk6mf5m62fi2" path="res://features/fuel-node/fuel-node_bar.png" id="1_wpsiu"]
 [ext_resource type="Script" path="res://features/fuel-node/fuel_node.gd" id="1_x3xtp"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cxa8r"]
-size = Vector2(96, 56)
+[sub_resource type="CircleShape2D" id="CircleShape2D_6x1ik"]
+radius = 61.2944
 
 [node name="FuelNodeBar" type="Node2D"]
 texture_filter = 1
@@ -18,7 +18,7 @@ offset = Vector2(-64, 0)
 position = Vector2(-94, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("RectangleShape2D_cxa8r")
+shape = SubResource("CircleShape2D_6x1ik")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
