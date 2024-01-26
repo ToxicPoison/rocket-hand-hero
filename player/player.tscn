@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dbs4185ihbvwl"]
+[gd_scene load_steps=15 format=3 uid="uid://dbs4185ihbvwl"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_6tb6q"]
 [ext_resource type="Texture2D" uid="uid://qjmndbkufmvw" path="res://player/player.png" id="1_7tm1o"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://player/rocket.gd" id="2_mt6ie"]
 [ext_resource type="Texture2D" uid="uid://pdrhtwwqdda3" path="res://normal sphere mask.png" id="3_2p3he"]
 [ext_resource type="Script" path="res://player/camera.gd" id="4_o4o6o"]
+[ext_resource type="Texture2D" uid="uid://duvgso2eu3drn" path="res://features/checkpoint/checkpoint.png" id="4_pr7iq"]
 [ext_resource type="Script" path="res://player/grapple.gd" id="5_aa6iw"]
 [ext_resource type="Texture2D" uid="uid://dv1vmq0kt87ga" path="res://player/grapple.png" id="6_it2xr"]
 
@@ -30,8 +31,23 @@ texture_filter = 1
 floor_snap_length = 3.0
 script = ExtResource("1_6tb6q")
 
+[node name="FuelPack" type="ProgressBar" parent="."]
+modulate = Color(0.188235, 0.45098, 1, 1)
+offset_left = -29.0
+offset_top = -7.0
+offset_right = 11.0
+offset_bottom = 14.0
+rotation = -1.5708
+max_value = 1.0
+value = 0.1
+show_percentage = false
+
+[node name="Player" type="Sprite2D" parent="."]
+texture = ExtResource("1_7tm1o")
+offset = Vector2(0, -32)
+
 [node name="Rocket" type="Node2D" parent="."]
-position = Vector2(0, -27)
+position = Vector2(7, -30)
 script = ExtResource("2_mt6ie")
 gradient = SubResource("Gradient_ahlhs")
 
@@ -48,6 +64,12 @@ scale_amount_curve = SubResource("Curve_6o1tf")
 color = Color(0.560784, 0.854902, 0.996078, 1)
 color_ramp = SubResource("Gradient_bla7j")
 
+[node name="Sprite2D" type="Sprite2D" parent="Rocket"]
+position = Vector2(0, 2)
+rotation = 1.5708
+scale = Vector2(0.359375, 0.375)
+texture = ExtResource("4_pr7iq")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -27)
 shape = SubResource("RectangleShape2D_h7w6t")
@@ -56,21 +78,6 @@ shape = SubResource("RectangleShape2D_h7w6t")
 top_level = true
 position_smoothing_speed = 2.0
 script = ExtResource("4_o4o6o")
-
-[node name="FuelPack" type="ProgressBar" parent="."]
-modulate = Color(0.188235, 0.45098, 1, 1)
-offset_left = -29.0
-offset_top = -7.0
-offset_right = 11.0
-offset_bottom = 14.0
-rotation = -1.5708
-max_value = 1.0
-value = 0.1
-show_percentage = false
-
-[node name="Player" type="Sprite2D" parent="."]
-texture = ExtResource("1_7tm1o")
-offset = Vector2(0, -32)
 
 [node name="Cursor" type="Node2D" parent="."]
 z_index = 1
@@ -84,7 +91,7 @@ texture = ExtResource("2_0p77d")
 shape = SubResource("RectangleShape2D_18uwt")
 
 [node name="Grapple" type="Node2D" parent="."]
-position = Vector2(0, -60)
+position = Vector2(11, -27)
 script = ExtResource("5_aa6iw")
 
 [node name="Grapple2" type="Sprite2D" parent="Grapple"]
