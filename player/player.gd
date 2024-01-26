@@ -9,6 +9,8 @@ var flying := false
 var grappling := false
 var jumped := false
 
+var wanna_jump := false
+
 const SPEED := 350.0
 var target_speed := 0.0
 const JUMP_VELOCITY := 500.0
@@ -26,13 +28,17 @@ func _process(delta):
 	mpos = get_viewport().get_mouse_position() + (camera.get_screen_center_position() - position) - get_viewport_rect().size * 0.5
 	mpos *= Vector2.ONE / camera.zoom
 	cursor.position = mpos
+	
+	# Jump by clicking above the player
+	wanna_jump = Input.is_action_pressed("walk") and get_global_mouse_position().y < (position.y - 200)
+	WatchList.watch("wanna_jump", wanna_jump)
 
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor() and !flying:
 		velocity.y += gravity * delta
 	
-	if Input.is_action_pressed("jump") and is_on_floor() and !grappling:
+	if (wanna_jump or Input.is_action_pressed("jump")) and is_on_floor() and !grappling:
 		velocity.y = -JUMP_VELOCITY
 		if $Rocket:
 			$Rocket.jump_timer_start()

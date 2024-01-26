@@ -15,6 +15,10 @@ run/main_scene="res://levels/desert/desert.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+WatchList="*res://global/watch_list.tscn"
+
 [display]
 
 window/size/viewport_width=1280
