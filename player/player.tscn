@@ -100,3 +100,5 @@ texture = ExtResource("6_it2xr")
 
 [node name="Line2D" type="Line2D" parent="Grapple"]
 points = PackedVector2Array(0, -27, 0, 0)
+texture = ExtResource("4_pr7iq")
+texture_mode = 2

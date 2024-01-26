@@ -6,8 +6,8 @@
 script = ExtResource("1_l3ocm")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 279.0
-offset_bottom = 151.0
+offset_right = 447.0
+offset_bottom = 383.0
 color = Color(0, 0, 0, 0.698039)
 
 [node name="Label" type="Label" parent="."]
@@ -15,6 +15,9 @@ offset_left = 11.0
 offset_top = 46.0
 offset_right = 270.0
 offset_bottom = 133.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 2
 text = "HELLO!!!!!!!!!!!!!!!!!!!!!!!"
 
 [node name="Title" type="Label" parent="."]
