@@ -15,6 +15,7 @@ var fuel : float
 const MAX_FUEL := 5.0
 
 @onready var exhaust := $CPUParticles2D
+@onready var fuel_pack := $"../FuelPack"
 @export var gradient = Gradient.new()
 
 
@@ -24,7 +25,9 @@ func _ready():
 
 func _process(delta):
 	rotation = player.mpos.angle()
-	exhaust.color = gradient.sample(fuel / MAX_FUEL)
+	var fuel_ratio = fuel / MAX_FUEL
+	exhaust.color = gradient.sample(fuel_ratio)
+	fuel_pack.set_as_ratio(fuel_ratio)
 	
 func _physics_process(delta):
 	if can_fire and !player.is_on_floor() and Input.is_action_pressed("fire") and !player.grappling and fuel - delta > 0:

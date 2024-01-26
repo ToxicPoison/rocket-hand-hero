@@ -57,6 +57,17 @@ top_level = true
 position_smoothing_speed = 2.0
 script = ExtResource("4_o4o6o")
 
+[node name="FuelPack" type="ProgressBar" parent="."]
+modulate = Color(0.188235, 0.45098, 1, 1)
+offset_left = -29.0
+offset_top = -7.0
+offset_right = 11.0
+offset_bottom = 14.0
+rotation = -1.5708
+max_value = 1.0
+value = 0.1
+show_percentage = false
+
 [node name="Player" type="Sprite2D" parent="."]
 texture = ExtResource("1_7tm1o")
 offset = Vector2(0, -32)
