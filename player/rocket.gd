@@ -39,10 +39,13 @@ func _physics_process(delta):
 		player.velocity = player.velocity.lerp(player.mpos.normalized() * force, smoothing)
 		fuel -= delta
 		exhaust.emitting = true
+		if !$RocketSound.playing:
+			$RocketSound.play()
 	else:
 		force = DEF_FORCE
 		player.flying = false
 		exhaust.emitting = false
+		$RocketSound.stop()
 		
 func jump_timer_start():
 	can_fire = false
@@ -51,3 +54,4 @@ func jump_timer_start():
 
 func refuel():
 	fuel = MAX_FUEL
+	$RefuelSound.play()

@@ -42,6 +42,7 @@ func _physics_process(delta):
 	
 	if (wanna_jump or Input.is_action_pressed("jump")) and is_on_floor() and !grappling:
 		velocity.y = -JUMP_VELOCITY
+		$AudioStreamPlayer2D.play()
 		if $Rocket:
 			$Rocket.jump_timer_start()
 		if $Grapple:
@@ -51,6 +52,8 @@ func _physics_process(delta):
 		
 	if is_on_floor() and Input.is_action_pressed("walk") and !flying and !grappling:
 		target_speed = mpos.normalized().x * SPEED
+		if !$StepSound.playing:
+			$StepSound.play()
 	elif Input.is_action_pressed("walk") and !flying:
 		velocity.x += mpos.normalized().x * SPEED * delta * 0.1
 		
@@ -68,6 +71,7 @@ func get_grapple():
 	return $Grapple
 
 func respawn():
+	$DeathSound.play()
 	velocity = Vector2.ZERO
 	if last_checkpoint:
 		position = last_checkpoint.position

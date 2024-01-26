@@ -59,10 +59,14 @@ func begin_grapple(obj):
 	player.grappling = true
 	state = State.GRAPPLING
 	grappling_progress = 0.0
+	$GrapplingSound.play()
 
 func grappled(obj):
+	$GrappledSound.play()
+	$GrapplingSound.stop()
 	if target.get_parent() is FuelNode:
 		target.get_parent().refuel_player(player)
+	
 
 func unhook():
 	target = null

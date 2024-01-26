@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dbs4185ihbvwl"]
+[gd_scene load_steps=22 format=3 uid="uid://dbs4185ihbvwl"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_6tb6q"]
 [ext_resource type="Texture2D" uid="uid://qjmndbkufmvw" path="res://player/player.png" id="1_7tm1o"]
@@ -9,6 +9,13 @@
 [ext_resource type="Texture2D" uid="uid://duvgso2eu3drn" path="res://features/checkpoint/checkpoint.png" id="4_pr7iq"]
 [ext_resource type="Script" path="res://player/grapple.gd" id="5_aa6iw"]
 [ext_resource type="Texture2D" uid="uid://dv1vmq0kt87ga" path="res://player/grapple.png" id="6_it2xr"]
+[ext_resource type="AudioStream" uid="uid://j3uixi458lle" path="res://player/thruster.wav" id="6_v2kad"]
+[ext_resource type="AudioStream" uid="uid://do034s7iy4o5e" path="res://player/refuel.wav" id="7_k8e37"]
+[ext_resource type="AudioStream" uid="uid://diecdvb8g6dc1" path="res://player/grappling.wav" id="10_6mblx"]
+[ext_resource type="AudioStream" uid="uid://dkcgy3q57nay7" path="res://player/jump.wav" id="10_6pwsv"]
+[ext_resource type="AudioStream" uid="uid://o2ehnnatwe6g" path="res://player/grappled.wav" id="11_vd4uy"]
+[ext_resource type="AudioStream" uid="uid://bb3loj8skqrh7" path="res://player/death.wav" id="14_l5fqh"]
+[ext_resource type="AudioStream" uid="uid://oib7nfeyeyda" path="res://player/step.wav" id="15_ao1tg"]
 
 [sub_resource type="Gradient" id="Gradient_ahlhs"]
 offsets = PackedFloat32Array(0, 0.083612, 0.237458, 1)
@@ -70,6 +77,12 @@ rotation = 1.5708
 scale = Vector2(0.359375, 0.375)
 texture = ExtResource("4_pr7iq")
 
+[node name="RocketSound" type="AudioStreamPlayer2D" parent="Rocket"]
+stream = ExtResource("6_v2kad")
+
+[node name="RefuelSound" type="AudioStreamPlayer2D" parent="Rocket"]
+stream = ExtResource("7_k8e37")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -27)
 shape = SubResource("RectangleShape2D_h7w6t")
@@ -102,3 +115,18 @@ texture = ExtResource("6_it2xr")
 points = PackedVector2Array(0, -27, 0, 0)
 texture = ExtResource("4_pr7iq")
 texture_mode = 2
+
+[node name="GrapplingSound" type="AudioStreamPlayer2D" parent="Grapple"]
+stream = ExtResource("10_6mblx")
+
+[node name="GrappledSound" type="AudioStreamPlayer2D" parent="Grapple"]
+stream = ExtResource("11_vd4uy")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_6pwsv")
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_l5fqh")
+
+[node name="StepSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_ao1tg")
