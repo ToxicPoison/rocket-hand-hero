@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://og65y61lbtuk"]
+
+[ext_resource type="PackedScene" uid="uid://byo2jbqod50a5" path="res://levels/level_template.tscn" id="1_js4h2"]
+[ext_resource type="PackedScene" uid="uid://dbs4185ihbvwl" path="res://player/player.tscn" id="2_txh3g"]
+[ext_resource type="TileSet" uid="uid://he51cno5ayyv" path="res://global/collision_tileset.tres" id="3_l2v67"]
+
+[node name="Void" instance=ExtResource("1_js4h2")]
+
+[node name="Player" parent="." index="0" instance=ExtResource("2_txh3g")]
+
+[node name="TileMap" type="TileMap" parent="Tiles" index="0"]
+tile_set = ExtResource("3_l2v67")
+format = 2
+layer_0/tile_data = PackedInt32Array(65535, 0, 0, 0, 0, 0, 1, 0, 0, 65537, 0, 0, 65536, 0, 0, 131071, 0, 0, -65534, 131072, 0, -65533, 0, 3, 2, 0, 0, -65532, 0, 0, 4, 0, 0, 65540, 0, 0, 65539, 0, 0, 3, 0, 0, 65538, 0, 0)
