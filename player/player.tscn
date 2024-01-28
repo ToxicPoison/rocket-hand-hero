@@ -89,6 +89,7 @@ shape = SubResource("RectangleShape2D_h7w6t")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 top_level = true
+ignore_rotation = false
 position_smoothing_speed = 2.0
 script = ExtResource("4_o4o6o")
 

@@ -36,7 +36,10 @@ func _physics_process(delta):
 			force += delta * acceleration
 			if force > MAX_FORCE: force = MAX_FORCE
 		player.flying = true
-		player.velocity = player.velocity.lerp(player.mpos.normalized() * force, smoothing)
+		if !player.current_rail:
+			player.velocity = player.velocity.lerp(player.mpos.normalized() * force, smoothing)
+		else:
+			player.current_rail.grind_speed -= (player.mpos.normalized() * force).dot(player.current_rail.get_tangent(player.global_position)) * delta
 		fuel -= delta
 		exhaust.emitting = true
 		if !$RocketSound.playing:

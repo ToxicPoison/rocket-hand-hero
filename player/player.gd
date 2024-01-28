@@ -8,6 +8,8 @@ var mpos := Vector2.ZERO
 var flying := false
 var grappling := false
 var jumped := false
+var current_rail : Object = null
+
 
 var wanna_jump := false
 
@@ -37,7 +39,7 @@ func _process(delta):
 
 func _physics_process(delta):
 	# Add the gravity.
-	if not is_on_floor() and !flying:
+	if not is_on_floor() and !flying and !current_rail:
 		velocity.y += gravity * delta
 	
 	if (wanna_jump or Input.is_action_pressed("jump")) and is_on_floor() and !grappling:
@@ -50,11 +52,11 @@ func _physics_process(delta):
 	
 	target_speed = 0.0
 		
-	if is_on_floor() and Input.is_action_pressed("walk") and !flying and !grappling:
+	if is_on_floor() and Input.is_action_pressed("walk") and !flying and !grappling and !current_rail:
 		target_speed = mpos.normalized().x * SPEED
 		if !$StepSound.playing:
 			$StepSound.play()
-	elif Input.is_action_pressed("walk") and !flying:
+	elif Input.is_action_pressed("walk") and !flying and !current_rail:
 		velocity.x += mpos.normalized().x * SPEED * delta * 0.1
 		
 	if is_on_floor():
@@ -72,6 +74,10 @@ func get_grapple():
 
 func respawn():
 	$DeathSound.play()
+	
+	if current_rail:
+		current_rail.dismount(false)
+	
 	velocity = Vector2.ZERO
 	if last_checkpoint:
 		position = last_checkpoint.position
@@ -81,4 +87,5 @@ func respawn():
 	if $Rocket:
 		if (last_checkpoint and last_checkpoint.refueling) or !last_checkpoint: $Rocket.refuel()
 		else: $Rocket.fuel = 0.0
+	
 	

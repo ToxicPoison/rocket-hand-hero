@@ -1,14 +1,149 @@
-[gd_scene load_steps=4 format=3 uid="uid://og65y61lbtuk"]
+[gd_scene load_steps=12 format=3 uid="uid://og65y61lbtuk"]
 
 [ext_resource type="PackedScene" uid="uid://byo2jbqod50a5" path="res://levels/level_template.tscn" id="1_js4h2"]
 [ext_resource type="PackedScene" uid="uid://dbs4185ihbvwl" path="res://player/player.tscn" id="2_txh3g"]
+[ext_resource type="PackedScene" uid="uid://b6xr5gvepn1lt" path="res://global/poly-terrain/polyterrains.tscn" id="3_0ppfg"]
 [ext_resource type="TileSet" uid="uid://he51cno5ayyv" path="res://global/collision_tileset.tres" id="3_l2v67"]
+[ext_resource type="PackedScene" uid="uid://bderu74gerv7f" path="res://features/rail/rail.tscn" id="4_3sjqm"]
+[ext_resource type="Texture2D" uid="uid://daaikmoa74ry3" path="res://levels/desert/desert_rock.png" id="4_j2qfi"]
+[ext_resource type="Texture2D" uid="uid://57tdcboxgmui" path="res://levels/test/test-background.png" id="7_geq4a"]
+
+[sub_resource type="Curve2D" id="Curve2D_3gig5"]
+bake_interval = 20.96
+_data = {
+"points": PackedVector2Array(-513.324, -754.103, 513.324, 754.103, -538, -651, -447.749, -12.6624, 447.749, 12.6624, 679, 212, 25.1244, 1519.22, -25.1244, -1519.22, 1605, -1170)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_4jicf"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1751, -170, -285.088, 60.5811, 285.088, -60.5811, 2138, -341, -195.998, -53.4539, 195.998, 53.4539, 2778, -337, -160.362, -493.558, 160.362, 493.558, 3614, 423, 180.109, -254.271, -180.109, 254.271, 3510, 1423, 110.184, -362.336, -110.184, 362.336, 2998, 1975, -245.407, -83.0609, 245.407, 83.0609, 3334, 2591, -711.681, -22.653, 711.681, 22.653, 4466, 2747, 344.885, 7.18782, -344.885, -7.18782, 4676, 2107, -25.362, -156.176, 25.362, 156.176, 4366, 2570, -694.692, 203.877, 694.692, -203.877, 5371, 2916, -87.432, -85.4297, 87.432, 85.4297, 6305, 2856, 230.927, 8.67646, -230.927, -8.67646, 6410, 2587, -181.538, -68.0768, 181.538, 68.0768, 6488, 2854, -229.306, 231.196, 229.306, -231.196, 7153, 2653)
+}
+point_count = 15
+
+[sub_resource type="Gradient" id="Gradient_s6i5k"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.312201, 1)
+colors = PackedColorArray(0.892538, 0.972997, 1, 1, 0.0349339, 0.654865, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_h5nca"]
+gradient = SubResource("Gradient_s6i5k")
+width = 1280
+height = 720
+fill_from = Vector2(1, 1)
 
 [node name="Void" instance=ExtResource("1_js4h2")]
 
 [node name="Player" parent="." index="0" instance=ExtResource("2_txh3g")]
 
-[node name="TileMap" type="TileMap" parent="Tiles" index="0"]
+[node name="Polyterrains2" parent="Tiles" index="0" instance=ExtResource("3_0ppfg")]
+z_index = -2
+draw_inner_shade = false
+make_collisions = false
+
+[node name="Polygon2D8" type="Polygon2D" parent="Tiles/Polyterrains2" index="0"]
+position = Vector2(3776, -81)
+color = Color(0.384314, 0.329412, 0.552941, 1)
+texture = ExtResource("4_j2qfi")
+polygon = PackedVector2Array(-3004, 400, -3004, 971, -2776, 978, -3271, 3602, 6555, 3867, 5754, 2354, 4974, 3053, 3413, 2596, 4624, 2031, 3218, 1647, 2351, 652, 3030, 2717, 1678, 2112, 1577, 1042, 245, 1775, 420, 591, -818, 2098, -1057, 884, -1112, 681, 105, 233, -153, 117, -438, 347, -1194, 67, -1241, 32, -1211, -157, -1198, -220, -1383, -169, -1350, -124, -1314, 31, -1347, 73, -1374, 61, -1417, 108, -1333, 665, -1357, 858, -1634, 927, -2004, 869, -2070, 715, -2025, 412, -2189, 448, -2207, 894, -2436, 713, -2679, 887, -2830, 874, -2847, 561)
+
+[node name="Polygon2D9" type="Polygon2D" parent="Tiles/Polyterrains2" index="1"]
+position = Vector2(3776, -81)
+color = Color(0.384314, 0.329412, 0.552941, 1)
+texture = ExtResource("4_j2qfi")
+polygon = PackedVector2Array(-3516, 280, -3447, 71, -3844, 99, -4039, 166, -4441, 623, -3771, 1026, -3041, 911, -3076, 699, -3244, 439, -3295, 406, -3385, 412)
+
+[node name="TileMap" type="TileMap" parent="Tiles" index="1"]
 tile_set = ExtResource("3_l2v67")
 format = 2
 layer_0/tile_data = PackedInt32Array(65535, 0, 0, 0, 0, 0, 1, 0, 0, 65537, 0, 0, 65536, 0, 0, 131071, 0, 0, -65534, 131072, 0, -65533, 0, 3, 2, 0, 0, -65532, 0, 0, 4, 0, 0, 65540, 0, 0, 65539, 0, 0, 3, 0, 0, 65538, 0, 0)
+
+[node name="Rail" parent="Interactable" index="0" instance=ExtResource("4_3sjqm")]
+
+[node name="Rail2" parent="Interactable" index="1" instance=ExtResource("4_3sjqm")]
+position = Vector2(2133, 683)
+curve = SubResource("Curve2D_3gig5")
+
+[node name="Rail3" parent="Interactable" index="2" instance=ExtResource("4_3sjqm")]
+position = Vector2(2133, 683)
+curve = SubResource("Curve2D_4jicf")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." index="3"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" index="0"]
+texture_filter = 1
+motion_scale = Vector2(0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" index="0"]
+position = Vector2(640, 360)
+texture = SubResource("GradientTexture2D_h5nca")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground" index="1"]
+texture_filter = 1
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(1280, 720)
+
+[node name="Test-background" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3" index="0"]
+modulate = Color(1, 1, 1, 0.380392)
+position = Vector2(352, 352)
+scale = Vector2(0.635, 0.635)
+texture = ExtResource("7_geq4a")
+
+[node name="Test-background2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3" index="1"]
+modulate = Color(1, 1, 1, 0.380392)
+position = Vector2(704, 256)
+scale = Vector2(0.635, 0.635)
+texture = ExtResource("7_geq4a")
+
+[node name="Test-background3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3" index="2"]
+modulate = Color(1, 1, 1, 0.380392)
+position = Vector2(352, 128)
+scale = Vector2(0.635, 0.635)
+texture = ExtResource("7_geq4a")
+
+[node name="Test-background4" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3" index="3"]
+modulate = Color(1, 1, 1, 0.380392)
+position = Vector2(1056, 352)
+scale = Vector2(0.635, 0.635)
+texture = ExtResource("7_geq4a")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground" index="2"]
+texture_filter = 1
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(1280, 0)
+
+[node name="Test-background" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2" index="0"]
+position = Vector2(256, 480)
+texture = ExtResource("7_geq4a")
+
+[node name="Test-background2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2" index="1"]
+position = Vector2(640, 416)
+texture = ExtResource("7_geq4a")
+
+[node name="Test-background3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2" index="2"]
+position = Vector2(992, 512)
+texture = ExtResource("7_geq4a")
+
+[node name="Test-background4" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2" index="3"]
+position = Vector2(96, 0)
+texture = ExtResource("7_geq4a")
+
+[node name="Test-background5" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2" index="4"]
+position = Vector2(480, -64)
+texture = ExtResource("7_geq4a")
+
+[node name="Test-background6" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2" index="5"]
+position = Vector2(832, 32)
+texture = ExtResource("7_geq4a")
+
+[node name="Test-background7" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2" index="6"]
+position = Vector2(320, -64)
+texture = ExtResource("7_geq4a")
+
+[node name="Test-background8" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2" index="7"]
+position = Vector2(704, -128)
+texture = ExtResource("7_geq4a")
+
+[node name="Test-background9" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2" index="8"]
+position = Vector2(1056, -32)
+texture = ExtResource("7_geq4a")

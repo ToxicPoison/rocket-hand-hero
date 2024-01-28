@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://bderu74gerv7f"]
+
+[ext_resource type="Script" path="res://features/rail/rail.gd" id="1_hvrjv"]
+
+[sub_resource type="Curve2D" id="Curve2D_k3urw"]
+bake_interval = 20.96
+_data = {
+"points": PackedVector2Array(-205.179, -2.52269, 205.179, 2.52269, 235, -154, -164.587, -6.99914, 164.587, 6.99914, 727, 30, -501.174, 221.156, 501.174, -221.156, 1545, -195)
+}
+point_count = 3
+
+[node name="Rail" type="Path2D"]
+position = Vector2(88, 74)
+curve = SubResource("Curve2D_k3urw")
+script = ExtResource("1_hvrjv")
+player_path = NodePath("../../Player")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(235, -154)
+rotation = 0.0122945
+
+[node name="_Timer_85970" type="Timer" parent="PathFollow2D"]
+wait_time = 0.2
+one_shot = true
+
+[node name="Line2D" type="Line2D" parent="."]
