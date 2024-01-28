@@ -9,7 +9,10 @@ func _unhandled_input(event):
 		visible = !visible
 
 func watch(var_name, var_value):
-	tracked_vars[var_name] = var_value
+	if var_value != null:
+		tracked_vars[var_name] = var_value
+	else:
+		tracked_vars[var_name] = "null"
 
 func _process(delta):
 	var output_string := ""

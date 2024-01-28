@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dbs4185ihbvwl"]
+[gd_scene load_steps=23 format=3 uid="uid://dbs4185ihbvwl"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_6tb6q"]
 [ext_resource type="Texture2D" uid="uid://qjmndbkufmvw" path="res://player/player.png" id="1_7tm1o"]
@@ -16,6 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://o2ehnnatwe6g" path="res://player/grappled.wav" id="11_vd4uy"]
 [ext_resource type="AudioStream" uid="uid://bb3loj8skqrh7" path="res://player/death.wav" id="14_l5fqh"]
 [ext_resource type="AudioStream" uid="uid://oib7nfeyeyda" path="res://player/step.wav" id="15_ao1tg"]
+[ext_resource type="Script" path="res://player/normal.gd" id="17_0rjuf"]
 
 [sub_resource type="Gradient" id="Gradient_ahlhs"]
 offsets = PackedFloat32Array(0, 0.083612, 0.237458, 1)
@@ -89,7 +90,6 @@ shape = SubResource("RectangleShape2D_h7w6t")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 top_level = true
-ignore_rotation = false
 position_smoothing_speed = 2.0
 script = ExtResource("4_o4o6o")
 
@@ -131,3 +131,11 @@ stream = ExtResource("14_l5fqh")
 
 [node name="StepSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("15_ao1tg")
+
+[node name="Normal" type="Node2D" parent="."]
+position = Vector2(25, -32)
+script = ExtResource("17_0rjuf")
+
+[node name="RayCast2D" type="RayCast2D" parent="Normal"]
+position = Vector2(-25, 19)
+target_position = Vector2(0, 32)
