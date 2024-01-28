@@ -4,6 +4,10 @@ var tracked_vars := {
 	"Example": 99
 }
 
+func _unhandled_input(event):
+	if event.is_action_pressed("debug"):
+		visible = !visible
+
 func watch(var_name, var_value):
 	tracked_vars[var_name] = var_value
 

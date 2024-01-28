@@ -33,6 +33,7 @@ func _physics_process(delta):
 	
 	# Move player along rail
 	if player.current_rail == self:
+		$Ride.pitch_scale = absf(grind_speed) / 1000.0
 		if player.wanna_jump or Input.is_action_pressed("jump"):
 			dismount(true)
 		
@@ -46,9 +47,13 @@ func _physics_process(delta):
 			$PathFollow2D.progress = next_pos
 		
 func mount(point) -> void:
-	# Set player's on-rail speed to how fast the player is moving (along the rail's tangent)
 	mountable = false
 	$Line2D.modulate = Color.RED
+	$Mount.play()
+	$Ride.playing = true
+	
+	# Set player's on-rail speed to how fast the player is moving (along the rail's tangent)
+
 	var mount_offset := curve.get_closest_offset(point)
 	var tangent_dir = get_tangent(point)
 	grind_speed = player.velocity.dot(tangent_dir)
@@ -63,6 +68,9 @@ func mount(point) -> void:
 	player.rotation = 0
 	
 func dismount(jump):
+	$Dismount.pitch_scale = true_velocity.length() / 1000.0
+	$Dismount.play()
+	$Ride.playing = false
 	player.current_rail = null
 	player.reparent(player_original_parent)
 	player.rotation = 0
