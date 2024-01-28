@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 WatchList="*res://global/watch_list.tscn"
+PhysicsSetup="*res://global/physics_setup.gd"
 
 [display]
 
