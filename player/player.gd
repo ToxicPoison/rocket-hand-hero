@@ -34,8 +34,6 @@ func _process(delta):
 	# Jump by swiping up
 	const min_swipe_speed = 1000
 	wanna_jump = Input.is_action_pressed("walk") and Input.get_last_mouse_velocity().y < -min_swipe_speed
-	WatchList.watch("mouse vel", Input.get_last_mouse_velocity().y)
-	WatchList.watch("wanna_jump", wanna_jump)
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -43,7 +41,8 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 	
 	if (wanna_jump or Input.is_action_pressed("jump")) and is_on_floor() and !grappling:
-		velocity.y = -JUMP_VELOCITY
+		# Jump away from the ground + some bonus if you're already moving
+		velocity += $Normal.get_normal() * (JUMP_VELOCITY + velocity.length()*0.1) 
 		$AudioStreamPlayer2D.play()
 		if $Rocket:
 			$Rocket.jump_timer_start()
