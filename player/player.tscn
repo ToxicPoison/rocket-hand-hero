@@ -1,12 +1,14 @@
-[gd_scene load_steps=24 format=3 uid="uid://dbs4185ihbvwl"]
+[gd_scene load_steps=26 format=3 uid="uid://dbs4185ihbvwl"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_6tb6q"]
 [ext_resource type="Texture2D" uid="uid://qjmndbkufmvw" path="res://player/player.png" id="1_7tm1o"]
 [ext_resource type="Texture2D" uid="uid://bdxja4pg44rhg" path="res://player/crosshair.png" id="2_0p77d"]
+[ext_resource type="Texture2D" uid="uid://dxxsj7d0ikwq8" path="res://player/fuel_pack_empty.png" id="2_ma60k"]
 [ext_resource type="Script" path="res://player/rocket.gd" id="2_mt6ie"]
 [ext_resource type="Texture2D" uid="uid://pdrhtwwqdda3" path="res://normal sphere mask.png" id="3_2p3he"]
+[ext_resource type="Texture2D" uid="uid://c1dj65jh6amsx" path="res://player/fuel_pack_full.png" id="3_ed6i6"]
 [ext_resource type="Script" path="res://player/camera.gd" id="4_o4o6o"]
-[ext_resource type="Texture2D" uid="uid://duvgso2eu3drn" path="res://features/checkpoint/checkpoint.png" id="4_pr7iq"]
+[ext_resource type="Texture2D" uid="uid://chd1yidtl8e41" path="res://player/rocket_hand.png" id="5_22uj2"]
 [ext_resource type="Script" path="res://player/grapple.gd" id="5_aa6iw"]
 [ext_resource type="Texture2D" uid="uid://dv1vmq0kt87ga" path="res://player/grapple.png" id="6_it2xr"]
 [ext_resource type="AudioStream" uid="uid://c5s5xvide8vdp" path="res://player/firing.wav" id="6_na1dq"]
@@ -43,16 +45,14 @@ script = ExtResource("1_6tb6q")
 
 [node name="Rotators" type="Node2D" parent="."]
 
-[node name="FuelPack" type="ProgressBar" parent="Rotators"]
-modulate = Color(0.188235, 0.45098, 1, 1)
-offset_left = -29.0
-offset_top = -7.0
-offset_right = 11.0
-offset_bottom = 14.0
-rotation = -1.5708
-max_value = 1.0
-value = 0.1
-show_percentage = false
+[node name="FuelPack" type="TextureProgressBar" parent="Rotators"]
+offset_left = -33.0
+offset_top = -62.0
+offset_right = 7.0
+offset_bottom = -4.0
+fill_mode = 3
+texture_under = ExtResource("2_ma60k")
+texture_progress = ExtResource("3_ed6i6")
 
 [node name="Player" type="Sprite2D" parent="Rotators"]
 texture = ExtResource("1_7tm1o")
@@ -84,9 +84,7 @@ color_ramp = SubResource("Gradient_bla7j")
 
 [node name="Sprite2D" type="Sprite2D" parent="Rocket"]
 position = Vector2(0, 2)
-rotation = 1.5708
-scale = Vector2(0.359375, 0.375)
-texture = ExtResource("4_pr7iq")
+texture = ExtResource("5_22uj2")
 
 [node name="RocketSound" type="AudioStreamPlayer2D" parent="Rocket"]
 stream = ExtResource("6_na1dq")
