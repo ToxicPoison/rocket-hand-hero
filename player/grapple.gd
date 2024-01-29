@@ -4,6 +4,7 @@ const HOOK_PATH := preload("res://player/grapple_hook.tscn")
 @onready var player := get_parent()
 @onready var line := $Line2D
 @onready var cursor = $"../Cursor/Area2D"
+@onready var grapple_origin = $"../Rotators/GrappleOrigin"
 
 enum State { UNGRAPPLED, GRAPPLING, GRAPPLED }
 var state = State.UNGRAPPLED
@@ -40,6 +41,7 @@ func _process(delta):
 	WatchList.watch("grappling_progress", grappling_progress)
 	
 func _physics_process(delta):
+	line.points[0] = grapple_origin.global_position - player.global_position
 	if target:
 		line.visible = true
 		if state == State.GRAPPLING:
@@ -62,6 +64,7 @@ func begin_grapple(obj):
 	$GrapplingSound.play()
 
 func grappled(obj):
+	if player.current_rail: player.current_rail.dismount(true)
 	$GrappledSound.play()
 	$GrapplingSound.stop()
 	if target.get_parent() is FuelNode:

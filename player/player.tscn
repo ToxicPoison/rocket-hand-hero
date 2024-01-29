@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dbs4185ihbvwl"]
+[gd_scene load_steps=24 format=3 uid="uid://dbs4185ihbvwl"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_6tb6q"]
 [ext_resource type="Texture2D" uid="uid://qjmndbkufmvw" path="res://player/player.png" id="1_7tm1o"]
@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://duvgso2eu3drn" path="res://features/checkpoint/checkpoint.png" id="4_pr7iq"]
 [ext_resource type="Script" path="res://player/grapple.gd" id="5_aa6iw"]
 [ext_resource type="Texture2D" uid="uid://dv1vmq0kt87ga" path="res://player/grapple.png" id="6_it2xr"]
-[ext_resource type="AudioStream" uid="uid://j3uixi458lle" path="res://player/thruster.wav" id="6_v2kad"]
+[ext_resource type="AudioStream" uid="uid://c5s5xvide8vdp" path="res://player/firing.wav" id="6_na1dq"]
 [ext_resource type="AudioStream" uid="uid://do034s7iy4o5e" path="res://player/refuel.wav" id="7_k8e37"]
 [ext_resource type="AudioStream" uid="uid://diecdvb8g6dc1" path="res://player/grappling.wav" id="10_6mblx"]
 [ext_resource type="AudioStream" uid="uid://dkcgy3q57nay7" path="res://player/jump.wav" id="10_6pwsv"]
@@ -34,12 +34,16 @@ size = Vector2(25, 54)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_18uwt"]
 
+[sub_resource type="Gradient" id="Gradient_46tsm"]
+
 [node name="Player" type="CharacterBody2D"]
 texture_filter = 1
 floor_snap_length = 3.0
 script = ExtResource("1_6tb6q")
 
-[node name="FuelPack" type="ProgressBar" parent="."]
+[node name="Rotators" type="Node2D" parent="."]
+
+[node name="FuelPack" type="ProgressBar" parent="Rotators"]
 modulate = Color(0.188235, 0.45098, 1, 1)
 offset_left = -29.0
 offset_top = -7.0
@@ -50,9 +54,15 @@ max_value = 1.0
 value = 0.1
 show_percentage = false
 
-[node name="Player" type="Sprite2D" parent="."]
+[node name="Player" type="Sprite2D" parent="Rotators"]
 texture = ExtResource("1_7tm1o")
 offset = Vector2(0, -32)
+
+[node name="RocketOrigin" type="Node2D" parent="Rotators"]
+position = Vector2(11, -27)
+
+[node name="GrappleOrigin" type="Node2D" parent="Rotators"]
+position = Vector2(11, -27)
 
 [node name="Rocket" type="Node2D" parent="."]
 position = Vector2(7, -30)
@@ -79,7 +89,8 @@ scale = Vector2(0.359375, 0.375)
 texture = ExtResource("4_pr7iq")
 
 [node name="RocketSound" type="AudioStreamPlayer2D" parent="Rocket"]
-stream = ExtResource("6_v2kad")
+stream = ExtResource("6_na1dq")
+volume_db = 5.07
 
 [node name="RefuelSound" type="AudioStreamPlayer2D" parent="Rocket"]
 stream = ExtResource("7_k8e37")
@@ -105,7 +116,6 @@ texture = ExtResource("2_0p77d")
 shape = SubResource("RectangleShape2D_18uwt")
 
 [node name="Grapple" type="Node2D" parent="."]
-position = Vector2(11, -27)
 script = ExtResource("5_aa6iw")
 
 [node name="Grapple2" type="Sprite2D" parent="Grapple"]
@@ -113,8 +123,8 @@ visible = false
 texture = ExtResource("6_it2xr")
 
 [node name="Line2D" type="Line2D" parent="Grapple"]
-points = PackedVector2Array(0, -27, 0, 0)
-texture = ExtResource("4_pr7iq")
+points = PackedVector2Array(0, 0, 0, 0)
+gradient = SubResource("Gradient_46tsm")
 texture_mode = 2
 
 [node name="GrapplingSound" type="AudioStreamPlayer2D" parent="Grapple"]

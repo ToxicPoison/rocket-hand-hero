@@ -15,7 +15,8 @@ var fuel : float
 const MAX_FUEL := 5.0
 
 @onready var exhaust := $CPUParticles2D
-@onready var fuel_pack := $"../FuelPack"
+@onready var rocket_origin = $"../Rotators/RocketOrigin"
+@onready var fuel_pack := $"../Rotators/FuelPack"
 @export var gradient = Gradient.new()
 
 
@@ -24,6 +25,7 @@ func _ready():
 	fuel = MAX_FUEL
 
 func _process(delta):
+	global_position = rocket_origin.global_position
 	rotation = player.mpos.angle()
 	var fuel_ratio = fuel / MAX_FUEL
 	exhaust.color = gradient.sample(fuel_ratio)
@@ -39,7 +41,7 @@ func _physics_process(delta):
 		if !player.current_rail:
 			player.velocity = player.velocity.lerp(player.mpos.normalized() * force, smoothing)
 		else:
-			player.current_rail.grind_speed -= (player.mpos.normalized() * force).dot(player.current_rail.get_tangent(player.global_position)) * delta
+			player.current_rail.grind_speed += (player.mpos.normalized() * force).dot(player.current_rail.get_tangent(player.global_position, true)) * delta
 		fuel -= delta
 		exhaust.emitting = true
 		if !$RocketSound.playing:

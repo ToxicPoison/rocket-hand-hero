@@ -71,6 +71,9 @@ func get_rocket():
 func get_grapple():
 	return $Grapple
 
+func get_rotator():
+	return $Rotators
+
 func respawn():
 	$DeathSound.play()
 	

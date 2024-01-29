@@ -3,6 +3,7 @@ extends Path2D
 @export var loop : bool = false
 @export_node_path("CharacterBody2D") var player_path
 @onready var player : Player = null
+@onready var player_rotator : Object = null
 
 var mountable := true
 var true_velocity := Vector2.ZERO # Velocity of the player going along the rail
@@ -15,28 +16,30 @@ func _ready() -> void:
 	for point in curve.get_baked_points():
 		$Line2D.add_point(point)
 	
-	if player_path: player = get_node(player_path)
+	if player_path:
+		player = get_node(player_path)
+		player_rotator = player.get_rotator()
 
 func _physics_process(delta):
-	WatchList.watch("rail grinding speed", grind_speed)
-	WatchList.watch("downness", true_velocity.normalized().dot(Vector2.DOWN))
-	WatchList.watch("player rail rotation up", -$PathFollow2D.get_global_transform().y)
-	if player:
+	if player and !player.grappling and !player.current_rail:
 		var local_player_pos = player.global_position - global_position
 		var closest_point = curve.get_closest_point(local_player_pos)
 		var p_in_range : bool = closest_point.distance_to(local_player_pos) < MOUNT_DIST
 		var p_moving_down : bool = player.velocity.dot(Vector2.DOWN) > 0
 		
-		if mountable and p_in_range and p_moving_down and !player.current_rail:
+		if mountable and p_in_range and p_moving_down:
 			mount(closest_point)
 		if not mountable and not p_in_range:
 			reenable()
 	
 	# Move player along rail
 	if player.current_rail == self:
+		player.global_position = $PathFollow2D.global_position
+		player_rotator.rotation = $PathFollow2D.rotation
+		
 		$Ride.pitch_scale = absf(grind_speed) / 1000.0
 		$Ride.volume_db = minf(absf(grind_speed) / 500.0 - 3.0, 4.0)
-		if player.wanna_jump or Input.is_action_pressed("jump"):
+		if Input.is_action_pressed("jump"): # or player.wanna_jump
 			dismount(true)
 		
 		var next_pos : float = $PathFollow2D.progress + grind_speed * delta
@@ -57,25 +60,20 @@ func mount(point) -> void:
 	# Set player's on-rail speed to how fast the player is moving (along the rail's tangent)
 
 	var mount_offset := curve.get_closest_offset(point)
-	var tangent_dir = get_tangent(point)
+	var tangent_dir = get_tangent(point, false)
 	grind_speed = player.velocity.dot(tangent_dir)
 	
 	# Place player along rail
 	$PathFollow2D.progress = mount_offset
-	player_original_parent = player.get_parent()
 	player.current_rail = self
-	player.reparent($PathFollow2D)
 	player.velocity = Vector2.ZERO
-	player.position = Vector2.ZERO
-	player.rotation = 0
 	
 func dismount(jump):
 	#$Dismount.pitch_scale = true_velocity.length() / 1000.0
 	$Dismount.play()
 	$Ride.playing = false
 	player.current_rail = null
-	player.reparent(player_original_parent)
-	player.rotation = 0
+	player_rotator.rotation = 0
 	player.velocity = true_velocity
 	if jump: 
 		player.velocity += $PathFollow2D.get_global_transform().y * -player.JUMP_VELOCITY
@@ -84,7 +82,11 @@ func reenable():
 	mountable = true
 	$Line2D.modulate = Color.WHITE
 
-func get_tangent(pt) -> Vector2:
+func get_tangent(pt, point_is_global) -> Vector2:
+	if point_is_global: pt = pt - position
 	var mount_offset := curve.get_closest_offset(pt)
-	var pt2 := curve.sample_baked(mount_offset + 0.5, true)
+	var pt2 := curve.sample_baked(mount_offset + 8, true)
+	#$To.position = pt
+	#$Fro.position = pt2
 	return (pt2 - pt).normalized()
+
