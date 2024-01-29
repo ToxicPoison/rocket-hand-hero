@@ -16,7 +16,8 @@ var jump_time_delay := 0.2
 var can_grapple := true
 var grappling_progress := 0.0
 const RANGE := 64.0 * 8.0
-const GRAPPLING_TIME = 0.06 # In seconds
+const GRAPPLING_TIME_PER_PIX = 0.0003 # In seconds per pix
+var grappling_time = 0.1
 
 var target : Object = null
 
@@ -30,10 +31,10 @@ func _process(delta):
 	if target and Input.is_action_just_released("grapple"):
 		unhook()
 	
-	if grappling_progress < GRAPPLING_TIME:
+	if grappling_progress < grappling_time:
 		grappling_progress += delta
 	else:
-		grappling_progress = GRAPPLING_TIME
+		grappling_progress = grappling_time
 		if state == State.GRAPPLING:
 			state = State.GRAPPLED
 			grappled(target)
@@ -46,7 +47,7 @@ func _physics_process(delta):
 		line.visible = true
 		if state == State.GRAPPLING:
 			var target_loc = target.global_position - player.global_position
-			var grapple_progress_proportion = clamp(grappling_progress / GRAPPLING_TIME, 0, 1)
+			var grapple_progress_proportion = clamp(grappling_progress / grappling_time, 0, 1)
 			line.points[1] = lerp(Vector2.ZERO, target_loc, grapple_progress_proportion)
 		elif state == State.GRAPPLED:
 			player.velocity += (target.global_position - player.global_position) * grapple_force * delta
@@ -60,6 +61,7 @@ func begin_grapple(obj):
 	target = obj
 	player.grappling = true
 	state = State.GRAPPLING
+	grappling_time = GRAPPLING_TIME_PER_PIX * global_position.distance_to(target.global_position)
 	grappling_progress = 0.0
 	$GrapplingSound.play()
 
