@@ -17,6 +17,7 @@ const MAX_FUEL := 5.0
 @onready var exhaust := $CPUParticles2D
 @onready var rocket_origin = $"../Rotators/RocketOrigin"
 @onready var fuel_pack := $"../Rotators/FuelPack"
+@onready var grapple = $"../Grapple"
 @export var gradient = Gradient.new()
 
 
@@ -30,7 +31,7 @@ func _process(delta):
 	var fuel_ratio = fuel / MAX_FUEL
 	exhaust.color = gradient.sample(fuel_ratio)
 	fuel_pack.set_as_ratio(fuel_ratio)
-	$Sprite2D.visible = !can_fire or player.flying or !player.is_on_floor()
+	$Sprite2D.visible = (!can_fire or player.flying or !player.is_on_floor()) and (grapple.state == grapple.State.UNGRAPPLED)
 	
 func _physics_process(delta):
 	if can_fire and !player.is_on_floor() and Input.is_action_pressed("fire") and !player.grappling and fuel - delta > 0:
