@@ -404,44 +404,39 @@ polygon = PackedVector2Array(569, -1992, 641, -2094, 694, -2122, 891, -2138, 107
 [node name="Polygon2D8" type="Polygon2D" parent="Tiles/Polyterrains" index="8"]
 position = Vector2(5086, -43)
 texture = ExtResource("5_ie18j")
-polygon = PackedVector2Array(3869, -1555, 4006, -1555, 4006, -1486, 3963, -1427, 3930, -1419, 3887, -1439, 3863, -1484)
+polygon = PackedVector2Array(3869, -1555, 4034, -1556, 4170, -1556, 4141, -1460, 4055, -1455, 3930, -1419, 3887, -1439, 3863, -1484)
 
-[node name="Polygon2D9" type="Polygon2D" parent="Tiles/Polyterrains" index="9"]
+[node name="Polygon2D10" type="Polygon2D" parent="Tiles/Polyterrains" index="9"]
 position = Vector2(5086, -43)
 texture = ExtResource("5_ie18j")
-polygon = PackedVector2Array(4257, -1491, 4386, -1492, 4387, -1422, 4356, -1378, 4310, -1357, 4268, -1390)
+polygon = PackedVector2Array(4476, -1557, 4821, -1555, 4779, -1516, 4739, -1458, 4659, -1436, 4571, -1465, 4498, -1449)
 
-[node name="Polygon2D10" type="Polygon2D" parent="Tiles/Polyterrains" index="10"]
-position = Vector2(5086, -43)
-texture = ExtResource("5_ie18j")
-polygon = PackedVector2Array(4574, -1557, 4777, -1557, 4774, -1528, 4739, -1458, 4659, -1436, 4595, -1449)
-
-[node name="Polygon2D11" type="Polygon2D" parent="Tiles/Polyterrains" index="11"]
+[node name="Polygon2D11" type="Polygon2D" parent="Tiles/Polyterrains" index="10"]
 position = Vector2(5086, -43)
 texture = ExtResource("5_ie18j")
 polygon = PackedVector2Array(3501, -2018, 3644, -1827, 4038, -1825, 4202, -1989, 4838, -2029, 5028, -1943, 5037, -1811, 5021, -1694, 5036, -1596, 5125, -1563, 5340, -1578, 5713, -1658, 6074, -1909, 6235, -2176, 6231, -2691, 6250, -3024, 6271, -3100, 6294, -3153, 5888, -3162, 5667, -3206, 5337, -3225, 4938, -3213, 4587, -3166, 4341, -3185, 4127, -3170, 4044, -3145, 3889, -2891, 3809, -2723, 3673, -2507, 3540, -2191, 3504, -2076)
 
-[node name="FrontIslands" type="Polygon2D" parent="Tiles/Polyterrains" index="12"]
+[node name="FrontIslands" type="Polygon2D" parent="Tiles/Polyterrains" index="11"]
 position = Vector2(3776, -81)
 texture = ExtResource("5_ie18j")
 polygon = PackedVector2Array(-4287, 211, -3457, 211, -3471, 514, -3546, 662, -3769, 919, -4120, 945, -4294, 830, -4309, 475)
 
-[node name="FrontIslands2" type="Polygon2D" parent="Tiles/Polyterrains" index="13"]
+[node name="FrontIslands2" type="Polygon2D" parent="Tiles/Polyterrains" index="12"]
 position = Vector2(3776, -81)
 texture = ExtResource("5_ie18j")
 polygon = PackedVector2Array(-3014, 235, -2995, 210, -2852, 202, -2755, 209, -2744, 224, -2756, 240, -2775, 455, -2792, 567, -2900, 647, -2927, 650, -2961, 622, -3017, 390)
 
-[node name="FrontIslands3" type="Polygon2D" parent="Tiles/Polyterrains" index="14"]
+[node name="FrontIslands3" type="Polygon2D" parent="Tiles/Polyterrains" index="13"]
 position = Vector2(3776, -81)
 texture = ExtResource("5_ie18j")
 polygon = PackedVector2Array(-2247, 274, -2217, 270, -2133, 293, -2036, 297, -1985, 278, -1969, 298, -2010, 478, -2164, 542, -2191, 474, -2241, 470, -2231, 347)
 
-[node name="FrontIslands4" type="Polygon2D" parent="Tiles/Polyterrains" index="15"]
+[node name="FrontIslands4" type="Polygon2D" parent="Tiles/Polyterrains" index="14"]
 position = Vector2(3776, -81)
 texture = ExtResource("5_ie18j")
 polygon = PackedVector2Array(-1477, 84, -1457, 77, -1282, 88, -1096, 76, -1080, 91, -1090, 569, -1259, 597, -1375, 574, -1423, 518, -1459, 515, -1486, 147)
 
-[node name="FrontIslands5" type="Polygon2D" parent="Tiles/Polyterrains" index="16"]
+[node name="FrontIslands5" type="Polygon2D" parent="Tiles/Polyterrains" index="15"]
 position = Vector2(3776, -81)
 texture = ExtResource("5_ie18j")
 polygon = PackedVector2Array(-1421, -188, -1409, -166, -1279, -173, -1156, -169, -1139, -206, -1189, -261, -1237, -256, -1312, -234, -1393, -236)
