@@ -1,5 +1,6 @@
 extends Path2D
 
+@export var loop : bool = false
 @export_node_path("CharacterBody2D") var player_path
 @onready var player : Player = null
 
@@ -34,11 +35,12 @@ func _physics_process(delta):
 	# Move player along rail
 	if player.current_rail == self:
 		$Ride.pitch_scale = absf(grind_speed) / 1000.0
+		$Ride.volume_db = minf(absf(grind_speed) / 500.0 - 3.0, 4.0)
 		if player.wanna_jump or Input.is_action_pressed("jump"):
 			dismount(true)
 		
 		var next_pos : float = $PathFollow2D.progress + grind_speed * delta
-		if next_pos > curve.get_baked_length() - 2 or next_pos < 0:
+		if not loop and (next_pos > curve.get_baked_length() - 2 or next_pos < 0):
 			dismount(false)
 		else:
 			true_velocity = (curve.sample_baked(next_pos) - curve.sample_baked($PathFollow2D.progress)) / delta
@@ -68,7 +70,7 @@ func mount(point) -> void:
 	player.rotation = 0
 	
 func dismount(jump):
-	$Dismount.pitch_scale = true_velocity.length() / 1000.0
+	#$Dismount.pitch_scale = true_velocity.length() / 1000.0
 	$Dismount.play()
 	$Ride.playing = false
 	player.current_rail = null

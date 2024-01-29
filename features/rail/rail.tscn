@@ -1,20 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bderu74gerv7f"]
+[gd_scene load_steps=5 format=3 uid="uid://bderu74gerv7f"]
 
 [ext_resource type="Script" path="res://features/rail/rail.gd" id="1_hvrjv"]
 [ext_resource type="AudioStream" uid="uid://bwseuor0lroad" path="res://features/rail/rail_mount.wav" id="2_uxhbj"]
 [ext_resource type="AudioStream" uid="uid://drmjc0l8emogo" path="res://features/rail/rail_slide.wav" id="3_yatbg"]
 [ext_resource type="AudioStream" uid="uid://o2ehnnatwe6g" path="res://player/grappled.wav" id="4_0cusp"]
 
-[sub_resource type="Curve2D" id="Curve2D_k3urw"]
-bake_interval = 20.96
-_data = {
-"points": PackedVector2Array(-205.179, -2.52269, 205.179, 2.52269, 235, -154, -164.587, -6.99914, 164.587, 6.99914, 727, 30, -501.174, 221.156, 501.174, -221.156, 1545, -195)
-}
-point_count = 3
-
 [node name="Rail" type="Path2D"]
-position = Vector2(88, 74)
-curve = SubResource("Curve2D_k3urw")
 script = ExtResource("1_hvrjv")
 player_path = NodePath("../../Player")
 
@@ -23,8 +14,6 @@ wait_time = 0.5
 one_shot = true
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
-position = Vector2(235, -154)
-rotation = 0.0122944
 
 [node name="_Timer_85970" type="Timer" parent="PathFollow2D"]
 wait_time = 0.2
@@ -41,4 +30,5 @@ stream = ExtResource("3_yatbg")
 
 [node name="Mount" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_0cusp")
+volume_db = -5.716
 pitch_scale = 2.2

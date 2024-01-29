@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://og65y61lbtuk"]
+[gd_scene load_steps=14 format=3 uid="uid://og65y61lbtuk"]
 
 [ext_resource type="PackedScene" uid="uid://byo2jbqod50a5" path="res://levels/level_template.tscn" id="1_js4h2"]
 [ext_resource type="PackedScene" uid="uid://dbs4185ihbvwl" path="res://player/player.tscn" id="2_txh3g"]
@@ -8,18 +8,29 @@
 [ext_resource type="Texture2D" uid="uid://daaikmoa74ry3" path="res://levels/desert/desert_rock.png" id="4_j2qfi"]
 [ext_resource type="Texture2D" uid="uid://57tdcboxgmui" path="res://levels/test/test-background.png" id="7_geq4a"]
 
-[sub_resource type="Curve2D" id="Curve2D_3gig5"]
-bake_interval = 20.96
+[sub_resource type="Curve2D" id="Curve2D_ideg5"]
 _data = {
-"points": PackedVector2Array(-513.324, -754.103, 513.324, 754.103, -538, -651, -447.749, -12.6624, 447.749, 12.6624, 679, 212, 25.1244, 1519.22, -25.1244, -1519.22, 1605, -1170)
+"points": PackedVector2Array(0, 0, 0, 0, 560, 0, -246, 0, 246, 0, 900, -1, -321, 0, 321, 0, 1466, 302, -27.571, 2.78905, 27.571, -2.78905, 2509, 302, -76.3274, 63.9803, 76.3274, -63.9803, 2715, 212)
 }
-point_count = 3
+point_count = 5
 
-[sub_resource type="Curve2D" id="Curve2D_4jicf"]
+[sub_resource type="Curve2D" id="Curve2D_txafj"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 1751, -170, -285.088, 60.5811, 285.088, -60.5811, 2138, -341, -195.998, -53.4539, 195.998, 53.4539, 2778, -337, -160.362, -493.558, 160.362, 493.558, 3614, 423, 180.109, -254.271, -180.109, 254.271, 3510, 1423, 110.184, -362.336, -110.184, 362.336, 2998, 1975, -245.407, -83.0609, 245.407, 83.0609, 3334, 2591, -711.681, -22.653, 711.681, 22.653, 4466, 2747, 344.885, 7.18782, -344.885, -7.18782, 4676, 2107, -25.362, -156.176, 25.362, 156.176, 4366, 2570, -694.692, 203.877, 694.692, -203.877, 5371, 2916, -87.432, -85.4297, 87.432, 85.4297, 6305, 2856, 230.927, 8.67646, -230.927, -8.67646, 6410, 2587, -181.538, -68.0768, 181.538, 68.0768, 6488, 2854, -229.306, 231.196, 229.306, -231.196, 7153, 2653)
+"points": PackedVector2Array(0, 0, 0, 0, 826, -2, -36.237, -1.49831, 36.237, 1.49831, 900, -1, -321, 0, 321, 0, 1272, 337, 0, 0, 0, 0, 1441, 132, 0, 0, 0, 0, 1287, 227, 0, 0, 0, 0, 1317, 114, 0, 0, 0, 0, 1413, 263, 0, 0, 0, 0, 1214, 129, 0, 0, 0, 0, 1755, 313, 0, 0, 0, 0, 1794, 75, 0, 0, 0, 0, 1672, 213, 0, 0, 0, 0, 1965, 124, 0, 0, 0, 0, 1752, 617, 0, 0, 0, 0, 2115, 26, 0, 0, 0, 0, 2122, 322, 0, 0, 0, 0, 2199, 176, 0, 0, 0, 0, 2291, 324, -27.571, 2.78905, 27.571, -2.78905, 2509, 302, -76.3274, 63.9803, 76.3274, -63.9803, 2670, 75, 0, 0, 0, 0, 3044, 31)
 }
-point_count = 15
+point_count = 20
+
+[sub_resource type="Curve2D" id="Curve2D_xh4sv"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 47, 110, 84.4768, 0.943874, -84.4768, -0.943874, -69, 191, -4.71937, 78.8135, 4.71937, -78.8135, -169, 70, -100.523, -20.7652, 100.523, 20.7652, -11, -37, 0, 0, 0, 0, 47, 110)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_ypx2f"]
+_data = {
+"points": PackedVector2Array(3.5, -150, -3.5, 150, 149, 162, 2.52269, -147.157, -2.52269, 147.157, -162, 454, 8.90899, -329.633, -8.90899, 329.633, 95, 1083, 1.7818, -162.144, -1.7818, 162.144, -169, 1516, -267.546, -85.2233, 267.546, 85.2233, 383, 1530, -40.9813, 288.651, 40.9813, -288.651, 916, 1822, 0, 276.179, 0, -276.179, -180, 1053, 0, 166.497, 0, -166.497, 50, 458, 1.63023, 172.47, -1.63023, -172.47, -242, 119, -100.523, -20.7652, 100.523, 20.7652, -11, -37, 0.66742, -97.777, -0.66742, 97.777, 149, 162)
+}
+point_count = 11
 
 [sub_resource type="Gradient" id="Gradient_s6i5k"]
 interpolation_mode = 2
@@ -59,14 +70,22 @@ format = 2
 layer_0/tile_data = PackedInt32Array(65535, 0, 0, 0, 0, 0, 1, 0, 0, 65537, 0, 0, 65536, 0, 0, 131071, 0, 0, -65534, 131072, 0, -65533, 0, 3, 2, 0, 0, -65532, 0, 0, 4, 0, 0, 65540, 0, 0, 65539, 0, 0, 3, 0, 0, 65538, 0, 0)
 
 [node name="Rail" parent="Interactable" index="0" instance=ExtResource("4_3sjqm")]
+position = Vector2(-260, -79)
+curve = SubResource("Curve2D_ideg5")
 
-[node name="Rail2" parent="Interactable" index="1" instance=ExtResource("4_3sjqm")]
-position = Vector2(2133, 683)
-curve = SubResource("Curve2D_3gig5")
+[node name="Rail4" parent="Interactable" index="1" instance=ExtResource("4_3sjqm")]
+position = Vector2(1422, -245)
+curve = SubResource("Curve2D_txafj")
 
-[node name="Rail3" parent="Interactable" index="2" instance=ExtResource("4_3sjqm")]
-position = Vector2(2133, 683)
-curve = SubResource("Curve2D_4jicf")
+[node name="Rail2" parent="Interactable" index="2" instance=ExtResource("4_3sjqm")]
+position = Vector2(-260, -79)
+curve = SubResource("Curve2D_xh4sv")
+loop = true
+
+[node name="Rail3" parent="Interactable" index="3" instance=ExtResource("4_3sjqm")]
+position = Vector2(-321, 268)
+curve = SubResource("Curve2D_ypx2f")
+loop = true
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." index="3"]
 
