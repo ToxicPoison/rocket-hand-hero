@@ -16,7 +16,7 @@ func on_body_entered(body):
 
 func on_approached(body):
 	if body is Player:
-		sprite.frame = 1
+		sprite.frame = 3
 		
 func on_left(body):
 	if body is Player:
