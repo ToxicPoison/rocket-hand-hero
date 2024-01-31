@@ -24,6 +24,7 @@ hframes = 4
 shape = SubResource("RectangleShape2D_v8ffl")
 
 [node name="AngerArea" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AngerArea"]
 shape = SubResource("CircleShape2D_v5ebw")

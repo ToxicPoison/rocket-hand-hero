@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cwecc26o4nx67"]
+[gd_scene load_steps=22 format=3 uid="uid://cwecc26o4nx67"]
 
 [ext_resource type="PackedScene" uid="uid://byo2jbqod50a5" path="res://levels/level_template.tscn" id="1_en44c"]
 [ext_resource type="PackedScene" uid="uid://2apd4uba4ayb" path="res://features/kill-wall/kill_flowers.tscn" id="3_c10be"]
@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://hucckqgwvx77" path="res://features/fuel-node/fuel_node_bar.tscn" id="7_ilcpe"]
 [ext_resource type="Script" path="res://features/killzone/killzone.gd" id="11_i5aap"]
 [ext_resource type="Texture2D" uid="uid://57tdcboxgmui" path="res://levels/test/test-background.png" id="12_pfy80"]
+[ext_resource type="PackedScene" uid="uid://j8lmh7nrek1d" path="res://features/swing-node/swing_node_bar.tscn" id="12_ydgnj"]
+[ext_resource type="PackedScene" uid="uid://bepcokc7w2qw2" path="res://features/swing-node/swing_node.tscn" id="14_grnqa"]
 
 [sub_resource type="TileSet" id="TileSet_dobqw"]
 tile_size = Vector2i(64, 64)
@@ -399,44 +401,49 @@ polygon = PackedVector2Array(-400, -726, -552, -795, -680, -990, -666, -1190, -5
 [node name="Polygon2D7" type="Polygon2D" parent="Tiles/Polyterrains" index="7"]
 position = Vector2(5086, -43)
 texture = ExtResource("5_ie18j")
-polygon = PackedVector2Array(569, -1992, 641, -2094, 694, -2122, 891, -2138, 1073, -2116, 1103, -2056, 1125, -1946, 1136, -1896, 1153, -1884, 1172, -1885, 1189, -1932, 1197, -2072, 1241, -2116, 1376, -2146, 1673, -2123, 1835, -2066, 1876, -1936, 1960, -1889, 2184, -1850, 2249, -1814, 2335, -1809, 2425, -1816, 2472, -1873, 2597, -1878, 2630, -1926, 2633, -2089, 2606, -2251, 2667, -2275, 2926, -2255, 3161, -2266, 3341, -2478, 3547, -2960, 3730, -3164, 3765, -3389, 3778, -4316, 3780, -4810, -1258, -4508, -1296, -2121)
+polygon = PackedVector2Array(569, -1992, 641, -2094, 694, -2122, 891, -2138, 1073, -2116, 1103, -2056, 1125, -1946, 1136, -1896, 1153, -1884, 1172, -1885, 1189, -1932, 1197, -2072, 1241, -2116, 1376, -2146, 1673, -2123, 1835, -2066, 1876, -1936, 1960, -1889, 2184, -1850, 2249, -1814, 2335, -1809, 2425, -1816, 2472, -1873, 2597, -1878, 2630, -1926, 2633, -2089, 2606, -2251, 2667, -2275, 2926, -2255, 3161, -2266, 3341, -2478, 3547, -2960, 3730, -3164, 3765, -3389, 3773, -3824, 3758, -3912, 3548, -3955, 3273, -3978, 3325, -3748, 3224, -3518, 2716, -3481, 2102, -3534, 1981, -3788, 2102, -3997, 1900, -4019, 1676, -3933, -1258, -4508, -1296, -2121)
 
-[node name="Polygon2D8" type="Polygon2D" parent="Tiles/Polyterrains" index="8"]
+[node name="Polygon2D9" type="Polygon2D" parent="Tiles/Polyterrains" index="8"]
+position = Vector2(4937, 54)
+texture = ExtResource("5_ie18j")
+polygon = PackedVector2Array(3945, -4354, 4091, -4265, 4038, -4131, 3834, -4145, 3788, -4275)
+
+[node name="Polygon2D8" type="Polygon2D" parent="Tiles/Polyterrains" index="9"]
 position = Vector2(5086, -43)
 texture = ExtResource("5_ie18j")
 polygon = PackedVector2Array(3869, -1555, 4034, -1556, 4170, -1556, 4141, -1460, 4055, -1455, 3930, -1419, 3887, -1439, 3863, -1484)
 
-[node name="Polygon2D10" type="Polygon2D" parent="Tiles/Polyterrains" index="9"]
+[node name="Polygon2D10" type="Polygon2D" parent="Tiles/Polyterrains" index="10"]
 position = Vector2(5086, -43)
 texture = ExtResource("5_ie18j")
 polygon = PackedVector2Array(4476, -1557, 4821, -1555, 4779, -1516, 4739, -1458, 4659, -1436, 4571, -1465, 4498, -1449)
 
-[node name="Polygon2D11" type="Polygon2D" parent="Tiles/Polyterrains" index="10"]
+[node name="Polygon2D11" type="Polygon2D" parent="Tiles/Polyterrains" index="11"]
 position = Vector2(5086, -43)
 texture = ExtResource("5_ie18j")
 polygon = PackedVector2Array(3501, -2018, 3644, -1827, 4038, -1825, 4202, -1989, 4838, -2029, 5028, -1943, 5037, -1811, 5021, -1694, 5036, -1596, 5125, -1563, 5340, -1578, 5713, -1658, 6074, -1909, 6235, -2176, 6231, -2691, 6250, -3024, 6271, -3100, 6294, -3153, 5888, -3162, 5667, -3206, 5337, -3225, 4938, -3213, 4587, -3166, 4341, -3185, 4127, -3170, 4044, -3145, 3889, -2891, 3809, -2723, 3673, -2507, 3540, -2191, 3504, -2076)
 
-[node name="FrontIslands" type="Polygon2D" parent="Tiles/Polyterrains" index="11"]
+[node name="FrontIslands" type="Polygon2D" parent="Tiles/Polyterrains" index="12"]
 position = Vector2(3776, -81)
 texture = ExtResource("5_ie18j")
 polygon = PackedVector2Array(-4287, 211, -3457, 211, -3471, 514, -3546, 662, -3769, 919, -4120, 945, -4294, 830, -4309, 475)
 
-[node name="FrontIslands2" type="Polygon2D" parent="Tiles/Polyterrains" index="12"]
+[node name="FrontIslands2" type="Polygon2D" parent="Tiles/Polyterrains" index="13"]
 position = Vector2(3776, -81)
 texture = ExtResource("5_ie18j")
 polygon = PackedVector2Array(-3014, 235, -2995, 210, -2852, 202, -2755, 209, -2744, 224, -2756, 240, -2775, 455, -2792, 567, -2900, 647, -2927, 650, -2961, 622, -3017, 390)
 
-[node name="FrontIslands3" type="Polygon2D" parent="Tiles/Polyterrains" index="13"]
+[node name="FrontIslands3" type="Polygon2D" parent="Tiles/Polyterrains" index="14"]
 position = Vector2(3776, -81)
 texture = ExtResource("5_ie18j")
 polygon = PackedVector2Array(-2247, 274, -2217, 270, -2133, 293, -2036, 297, -1985, 278, -1969, 298, -2010, 478, -2164, 542, -2191, 474, -2241, 470, -2231, 347)
 
-[node name="FrontIslands4" type="Polygon2D" parent="Tiles/Polyterrains" index="14"]
+[node name="FrontIslands4" type="Polygon2D" parent="Tiles/Polyterrains" index="15"]
 position = Vector2(3776, -81)
 texture = ExtResource("5_ie18j")
 polygon = PackedVector2Array(-1477, 84, -1457, 77, -1282, 88, -1096, 76, -1080, 91, -1090, 569, -1259, 597, -1375, 574, -1423, 518, -1459, 515, -1486, 147)
 
-[node name="FrontIslands5" type="Polygon2D" parent="Tiles/Polyterrains" index="15"]
+[node name="FrontIslands5" type="Polygon2D" parent="Tiles/Polyterrains" index="16"]
 position = Vector2(3776, -81)
 texture = ExtResource("5_ie18j")
 polygon = PackedVector2Array(-1421, -188, -1409, -166, -1279, -173, -1156, -169, -1139, -206, -1189, -261, -1237, -256, -1312, -234, -1393, -236)
@@ -583,6 +590,21 @@ rotation = -1.57079
 position = Vector2(5548, -768)
 rotation = -1.57079
 
+[node name="KillFlowers" parent="Interactable/KillWalls" index="38" instance=ExtResource("3_c10be")]
+position = Vector2(7802, -3549)
+
+[node name="KillFlowers40" parent="Interactable/KillWalls" index="39" instance=ExtResource("3_c10be")]
+position = Vector2(7912, -3550)
+
+[node name="KillFlowers41" parent="Interactable/KillWalls" index="40" instance=ExtResource("3_c10be")]
+position = Vector2(8124, -3569)
+
+[node name="KillFlowers42" parent="Interactable/KillWalls" index="41" instance=ExtResource("3_c10be")]
+position = Vector2(7609, -3565)
+
+[node name="KillFlowers43" parent="Interactable/KillWalls" index="42" instance=ExtResource("3_c10be")]
+position = Vector2(7314, -3590)
+
 [node name="Checkpoint" parent="Interactable" index="1" instance=ExtResource("4_88lqw")]
 position = Vector2(3584, -160)
 
@@ -596,13 +618,13 @@ position = Vector2(5184, -864)
 position = Vector2(7424, -1760)
 
 [node name="Checkpoint5" parent="Interactable" index="5" instance=ExtResource("4_88lqw")]
-position = Vector2(11104, -3232)
+position = Vector2(9421, -3258)
 
 [node name="FuelNode" parent="Interactable" index="6" instance=ExtResource("5_gvto2")]
 position = Vector2(2496, -256)
 
 [node name="FuelNode6" parent="Interactable" index="7" instance=ExtResource("5_gvto2")]
-position = Vector2(10752, -3456)
+position = Vector2(7940, -4228)
 
 [node name="FuelNode2" parent="Interactable" index="8" instance=ExtResource("5_gvto2")]
 position = Vector2(4032, -192)
@@ -633,6 +655,21 @@ shape = SubResource("RectangleShape2D_8lqy7")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Interactable/Killzone" index="1"]
 position = Vector2(11388.8, -702)
 shape = SubResource("RectangleShape2D_ol8xm")
+
+[node name="SwingNodeBar" parent="Interactable" index="15" instance=ExtResource("12_ydgnj")]
+position = Vector2(8851, -3457)
+rotation = -3.14159
+
+[node name="SwingNodeBar2" parent="Interactable" index="16" instance=ExtResource("12_ydgnj")]
+position = Vector2(8852, -3642)
+rotation = -3.14159
+
+[node name="SwingNodeBar3" parent="Interactable" index="17" instance=ExtResource("12_ydgnj")]
+position = Vector2(8857, -3824)
+rotation = -3.14159
+
+[node name="SwingNode" parent="Interactable" index="18" instance=ExtResource("14_grnqa")]
+position = Vector2(8817, -4092)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." index="3"]
 
