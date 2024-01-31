@@ -3,13 +3,16 @@ class_name Player extends CharacterBody2D
 @onready var cursor = $Cursor
 @onready var camera = $Camera2D
 
+@export var start_with_rocket := true
+@export var start_with_grapple := true
+@export var start_with_rocket_fuel := true
+
 var mpos := Vector2.ZERO
 
 var flying := false
 var grappling := false
 var jumped := false
 var current_rail : Object = null
-
 
 var wanna_jump := false
 
@@ -22,6 +25,12 @@ var accel := 0.2
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var last_checkpoint : Object = null
+
+func _ready():
+	if !start_with_grapple and $Grapple: $Grapple.queue_free()
+	if $Rocket:
+		if !start_with_rocket: $Rocket.queue_free()
+		elif start_with_rocket_fuel: $Rocket.refuel()
 
 func _unhandled_input(event):
 	if event.is_action_pressed("respawn"): respawn()

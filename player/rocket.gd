@@ -11,7 +11,7 @@ var jump_time_delay := 0.5
 var can_fire := true
 var smoothing = 0.05
 
-var fuel : float
+var fuel := 0.0
 const MAX_FUEL := 5.0
 
 @onready var exhaust := $CPUParticles2D
@@ -23,7 +23,6 @@ const MAX_FUEL := 5.0
 
 func _ready():
 	gradient.interpolation_mode = Gradient.GRADIENT_INTERPOLATE_LINEAR
-	fuel = MAX_FUEL
 
 func _process(delta):
 	global_position = rocket_origin.global_position

@@ -1,7 +1,10 @@
 extends Path2D
 
 @export var loop : bool = false
+@export var fall_off_start : bool = true
+@export var fall_off_end : bool = true
 @export_node_path("CharacterBody2D") var player_path
+
 @onready var player : Player = null
 @onready var player_rotator : Object = null
 
@@ -33,23 +36,33 @@ func _physics_process(delta):
 			reenable()
 	
 	# Move player along rail
-	if player.current_rail == self:
+	if player and player.current_rail == self:
 		player.global_position = $PathFollow2D.global_position
 		player_rotator.rotation = $PathFollow2D.rotation
 		
 		$Ride.pitch_scale = absf(grind_speed) / 1000.0
 		$Ride.volume_db = minf(absf(grind_speed) / 500.0 - 3.0, 4.0)
-		if Input.is_action_pressed("jump"): # or player.wanna_jump
+		if Input.is_action_pressed("jump") or ( ((player.get_rocket() and player.get_rocket().fuel <= 0) or !player.get_rocket()) and player.wanna_jump ): # 
 			dismount(true)
 		
 		var next_pos : float = $PathFollow2D.progress + grind_speed * delta
-		if not loop and (next_pos > curve.get_baked_length() - 2 or next_pos < 0):
-			dismount(false)
-		else:
-			true_velocity = (curve.sample_baked(next_pos) - curve.sample_baked($PathFollow2D.progress)) / delta
-			if grind_speed > 0: grind_speed += true_velocity.normalized().dot(Vector2.DOWN) * GRAVITY_FACTOR
-			else: grind_speed -= true_velocity.normalized().dot(Vector2.DOWN) * GRAVITY_FACTOR
-			$PathFollow2D.progress = next_pos
+		if not loop:
+			var ahead : bool = next_pos > curve.get_baked_length()
+			var behind : bool = next_pos < 0
+			if ahead and fall_off_end:
+				dismount(false)
+			elif behind and fall_off_start:
+				dismount(false)
+			elif (ahead or behind) and (!fall_off_end or !fall_off_start):
+				grind_speed = -0.4 * grind_speed #change this number if you  want
+				$Dismount.play()
+		
+		true_velocity = (curve.sample_baked(next_pos) - curve.sample_baked($PathFollow2D.progress)) / delta
+		
+		if grind_speed > 0: grind_speed += true_velocity.normalized().dot(Vector2.DOWN) * GRAVITY_FACTOR
+		else: grind_speed -= true_velocity.normalized().dot(Vector2.DOWN) * GRAVITY_FACTOR
+		
+		if loop or (next_pos < curve.get_baked_length() and next_pos > 0): $PathFollow2D.progress = next_pos
 		
 func mount(point) -> void:
 	mountable = false
@@ -67,6 +80,7 @@ func mount(point) -> void:
 	$PathFollow2D.progress = mount_offset
 	player.current_rail = self
 	player.velocity = Vector2.ZERO
+	player.get_node("CollisionShape2D").set_deferred("disabled", true)
 	
 func dismount(jump):
 	#$Dismount.pitch_scale = true_velocity.length() / 1000.0
@@ -75,6 +89,7 @@ func dismount(jump):
 	player.current_rail = null
 	player_rotator.rotation = 0
 	player.velocity = true_velocity
+	player.get_node("CollisionShape2D").set_deferred("disabled", false)
 	if jump: 
 		player.velocity += $PathFollow2D.get_global_transform().y * -player.JUMP_VELOCITY
 
