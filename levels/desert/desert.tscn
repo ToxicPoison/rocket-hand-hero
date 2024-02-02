@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cwecc26o4nx67"]
+[gd_scene load_steps=25 format=3 uid="uid://cwecc26o4nx67"]
 
 [ext_resource type="PackedScene" uid="uid://byo2jbqod50a5" path="res://levels/level_template.tscn" id="1_en44c"]
 [ext_resource type="PackedScene" uid="uid://2apd4uba4ayb" path="res://features/kill-wall/kill_flowers.tscn" id="3_c10be"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://jjc0nncna5w" path="res://levels/desert/rock/desert_rock_l.tscn" id="9_nlno0"]
 [ext_resource type="Script" path="res://features/killzone/killzone.gd" id="11_i5aap"]
 [ext_resource type="Texture2D" uid="uid://57tdcboxgmui" path="res://levels/test/test-background.png" id="12_pfy80"]
+[ext_resource type="PackedScene" uid="uid://dc1t8pltp5bdp" path="res://features/goal/goal.tscn" id="17_g2rkr"]
 
 [sub_resource type="TileSet" id="TileSet_dobqw"]
 tile_size = Vector2i(64, 64)
@@ -408,7 +409,6 @@ position = Vector2(2450, -252)
 [node name="DesertRockS-8" parent="Rocks" index="20" instance=ExtResource("6_r0ym6")]
 position = Vector2(2538, -254)
 rotation = 1.45626
-scale = Vector2(1, 1)
 
 [node name="DesertRockS10" parent="Rocks" index="21" instance=ExtResource("7_d16sv")]
 position = Vector2(2519, -261)
@@ -825,5 +825,8 @@ texture = ExtResource("12_pfy80")
 [node name="Test-background9" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2" index="8"]
 position = Vector2(1056, -32)
 texture = ExtResource("12_pfy80")
+
+[node name="Goal" parent="." index="5" instance=ExtResource("17_g2rkr")]
+position = Vector2(13253, -13298)
 
 [editable path="Interactable/Checkpoints/Checkpoint"]
