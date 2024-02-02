@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://oib7nfeyeyda"
-path="res://.godot/imported/step.wav-8d08ed0963fe5826c626e60122f69b80.sample"
+uid="uid://ciam2i7vcxeaa"
+path="res://.godot/imported/Fuel.wav-d881ee163eaff8e233531c35565f71fb.sample"
 
 [deps]
 
-source_file="res://player/step.wav"
-dest_files=["res://.godot/imported/step.wav-8d08ed0963fe5826c626e60122f69b80.sample"]
+source_file="res://sounds/Fuel.wav"
+dest_files=["res://.godot/imported/Fuel.wav-d881ee163eaff8e233531c35565f71fb.sample"]
 
 [params]
 

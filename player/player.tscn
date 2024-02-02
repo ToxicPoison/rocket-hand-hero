@@ -13,13 +13,13 @@
 [ext_resource type="Script" path="res://player/grapple.gd" id="5_aa6iw"]
 [ext_resource type="Texture2D" uid="uid://dv1vmq0kt87ga" path="res://player/grapple.png" id="6_it2xr"]
 [ext_resource type="AudioStream" uid="uid://c5s5xvide8vdp" path="res://player/firing.wav" id="6_na1dq"]
-[ext_resource type="AudioStream" uid="uid://do034s7iy4o5e" path="res://player/refuel.wav" id="7_k8e37"]
-[ext_resource type="AudioStream" uid="uid://diecdvb8g6dc1" path="res://player/grappling.wav" id="10_6mblx"]
 [ext_resource type="AudioStream" uid="uid://dkcgy3q57nay7" path="res://player/jump.wav" id="10_6pwsv"]
-[ext_resource type="AudioStream" uid="uid://o2ehnnatwe6g" path="res://player/grappled.wav" id="11_vd4uy"]
+[ext_resource type="AudioStream" uid="uid://ciam2i7vcxeaa" path="res://sounds/Fuel.wav" id="10_h5idp"]
 [ext_resource type="AudioStream" uid="uid://bb3loj8skqrh7" path="res://player/death.wav" id="14_l5fqh"]
-[ext_resource type="AudioStream" uid="uid://oib7nfeyeyda" path="res://player/step.wav" id="15_ao1tg"]
+[ext_resource type="AudioStream" uid="uid://coh3i170kkns8" path="res://sounds/GrappleCast.wav" id="15_q1ill"]
+[ext_resource type="AudioStream" uid="uid://da22jqn1tfpgm" path="res://sounds/GrappleHit.wav" id="16_2ga77"]
 [ext_resource type="Script" path="res://player/normal.gd" id="17_0rjuf"]
+[ext_resource type="AudioStream" uid="uid://d2esbo2h062nt" path="res://sounds/Footstep.wav" id="19_6aqlh"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rgkbd"]
 animations = [{
@@ -112,7 +112,7 @@ stream = ExtResource("6_na1dq")
 volume_db = 5.07
 
 [node name="RefuelSound" type="AudioStreamPlayer2D" parent="Rocket"]
-stream = ExtResource("7_k8e37")
+stream = ExtResource("10_h5idp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -27)
@@ -147,10 +147,10 @@ gradient = SubResource("Gradient_46tsm")
 texture_mode = 2
 
 [node name="GrapplingSound" type="AudioStreamPlayer2D" parent="Grapple"]
-stream = ExtResource("10_6mblx")
+stream = ExtResource("15_q1ill")
 
 [node name="GrappledSound" type="AudioStreamPlayer2D" parent="Grapple"]
-stream = ExtResource("11_vd4uy")
+stream = ExtResource("16_2ga77")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_6pwsv")
@@ -159,7 +159,7 @@ stream = ExtResource("10_6pwsv")
 stream = ExtResource("14_l5fqh")
 
 [node name="StepSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("15_ao1tg")
+stream = ExtResource("19_6aqlh")
 
 [node name="Normal" type="Node2D" parent="."]
 position = Vector2(25, -32)

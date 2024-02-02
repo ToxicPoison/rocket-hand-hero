@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://duvgso2eu3drn" path="res://features/checkpoint/checkpoint.png" id="1_2e75l"]
 [ext_resource type="Script" path="res://features/checkpoint/checkpoint.gd" id="1_hwq34"]
-[ext_resource type="AudioStream" uid="uid://c2jrsrarfnr5c" path="res://features/checkpoint/checkpoint.wav" id="3_hlw0o"]
+[ext_resource type="AudioStream" uid="uid://cti5n5ucci0ra" path="res://sounds/Checkpoint.wav" id="3_5k1u7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mdrvn"]
 size = Vector2(128, 128)
@@ -21,4 +21,5 @@ position = Vector2(0, -32)
 shape = SubResource("RectangleShape2D_mdrvn")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_hlw0o")
+stream = ExtResource("3_5k1u7")
+volume_db = -9.157
