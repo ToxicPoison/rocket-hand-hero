@@ -4,6 +4,9 @@ var tracked_vars := {
 	"Example": 99
 }
 
+func _ready():
+	visible = false
+
 func _unhandled_input(event):
 	if event.is_action_pressed("debug"):
 		visible = !visible
