@@ -82,7 +82,7 @@ offset = Vector2(0, -32)
 position = Vector2(-14, -28)
 
 [node name="GrappleOrigin" type="Node2D" parent="Rotators"]
-position = Vector2(11, -27)
+position = Vector2(16, -17)
 
 [node name="Rocket" type="Node2D" parent="."]
 position = Vector2(-14, -28)
