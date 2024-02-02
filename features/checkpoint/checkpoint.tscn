@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dao36swjhpqja"]
+[gd_scene load_steps=5 format=3 uid="uid://dao36swjhpqja"]
 
 [ext_resource type="Texture2D" uid="uid://duvgso2eu3drn" path="res://features/checkpoint/checkpoint.png" id="1_2e75l"]
 [ext_resource type="Script" path="res://features/checkpoint/checkpoint.gd" id="1_hwq34"]
+[ext_resource type="AudioStream" uid="uid://c2jrsrarfnr5c" path="res://features/checkpoint/checkpoint.wav" id="3_hlw0o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mdrvn"]
 size = Vector2(128, 128)
@@ -18,3 +19,6 @@ position = Vector2(0, -32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_mdrvn")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_hlw0o")

@@ -1,7 +1,10 @@
-[gd_scene format=3 uid="uid://byo2jbqod50a5"]
+[gd_scene load_steps=2 format=3 uid="uid://byo2jbqod50a5"]
+
+[ext_resource type="Script" path="res://levels/level_template.gd" id="1_mtvkr"]
 
 [node name="LevelTemplate" type="Node2D"]
 texture_filter = 1
+script = ExtResource("1_mtvkr")
 
 [node name="Tiles" type="Node2D" parent="."]
 texture_filter = 1
