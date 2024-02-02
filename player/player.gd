@@ -40,6 +40,12 @@ func _process(delta):
 	mpos *= Vector2.ONE / camera.zoom
 	cursor.position = mpos
 	
+	# Face the direction the cursor is in
+	if cursor.global_position.x < global_position.x:
+		$Rotators.scale.x = -1
+	else:
+		$Rotators.scale.x = 1
+	
 	# Change sprite if using the rocket
 	if $Rocket/Sprite2D.visible:
 		$Rotators/Player.animation = "rocketing"
