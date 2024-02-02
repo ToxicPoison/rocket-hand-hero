@@ -1,10 +1,11 @@
-[gd_scene load_steps=30 format=3 uid="uid://og65y61lbtuk"]
+[gd_scene load_steps=31 format=3 uid="uid://og65y61lbtuk"]
 
 [ext_resource type="PackedScene" uid="uid://byo2jbqod50a5" path="res://levels/level_template.tscn" id="1_js4h2"]
 [ext_resource type="PackedScene" uid="uid://dbs4185ihbvwl" path="res://player/player.tscn" id="2_txh3g"]
 [ext_resource type="PackedScene" uid="uid://b6xr5gvepn1lt" path="res://global/poly-terrain/polyterrains.tscn" id="3_0ppfg"]
 [ext_resource type="TileSet" uid="uid://he51cno5ayyv" path="res://global/collision_tileset.tres" id="3_l2v67"]
 [ext_resource type="PackedScene" uid="uid://bderu74gerv7f" path="res://features/rail/rail.tscn" id="4_3sjqm"]
+[ext_resource type="Texture2D" uid="uid://bniop4gkio02l" path="res://levels/void/void_rock.png" id="4_l4jml"]
 [ext_resource type="PackedScene" uid="uid://dqxmhduxnd0sf" path="res://features/fuel-node/fuel_node.tscn" id="7_7ryks"]
 [ext_resource type="Texture2D" uid="uid://57tdcboxgmui" path="res://levels/test/test-background.png" id="7_geq4a"]
 [ext_resource type="PackedScene" uid="uid://dao36swjhpqja" path="res://features/checkpoint/checkpoint.tscn" id="7_vm6xr"]
@@ -129,32 +130,32 @@ make_collisions = false
 z_index = -2
 
 [node name="Polygon2D" type="Polygon2D" parent="Tiles/Polyterrains3" index="2"]
-color = Color(0.509804, 0.509804, 0.509804, 1)
+texture = ExtResource("4_l4jml")
 polygon = PackedVector2Array(704, 32, 736, 160, 608, 416, 608, 896, 0, 1536, -1280, 1536, -2304, 1024, -2048, 32)
 
 [node name="Polygon2D2" type="Polygon2D" parent="Tiles/Polyterrains3" index="3"]
 position = Vector2(256, 0)
-color = Color(0.509804, 0.509804, 0.509804, 1)
+texture = ExtResource("4_l4jml")
 polygon = PackedVector2Array(6112, 352, 6048, 1088, 6656, 1536, 8704, 1536, 9184, -256, 9408, -224, 9440, -672, 8928, -736, 8160, -736, 8128, 64, 7776, 224, 7616, 448, 7627, 735, 7576, 826, 7112, 894, 7072, 672, 6688, 672, 6432, 480, 6432, 352)
 
 [node name="Polygon2D3" type="Polygon2D" parent="Tiles/Polyterrains3" index="4"]
 position = Vector2(256, 0)
-color = Color(0.509804, 0.509804, 0.509804, 1)
+texture = ExtResource("4_l4jml")
 polygon = PackedVector2Array(6112, 32, 6304, -1728, 7936, -1920, 8960, -1856, 9632, -1632, 9920, -992, 9888, -384, 9659, -408, 9836, -715, 9696, -960, 9263.61, -1067.67, 9024, -992, 8192, -1056, 7659, -719, 7486, 146, 7775, 808, 7643, 761, 7457, 324, 7104, 160, 6944, 352, 6752, 352, 6496, 32)
 
 [node name="Polygon2D4" type="Polygon2D" parent="Tiles/Polyterrains3" index="5"]
 position = Vector2(256, 0)
-color = Color(0.509804, 0.509804, 0.509804, 1)
+texture = ExtResource("4_l4jml")
 polygon = PackedVector2Array(15392, -736, 15520, -2560, 17920, -2560, 18080, -1088, 17920, -672, 17920, -1056, 17694, -1120, 17824, -512, 17696, -352, 17536, -1120, 17376, -1120, 17216, -480, 16608, -480, 15968, -736)
 
 [node name="Polygon2D5" type="Polygon2D" parent="Tiles/Polyterrains3" index="6"]
 position = Vector2(256, 0)
-color = Color(0.509804, 0.509804, 0.509804, 1)
+texture = ExtResource("4_l4jml")
 polygon = PackedVector2Array(15392, -416, 15968, -352, 16096, -64, 16096, 256, 15936, 416, 15584, 416, 15424, 224, 15392, -160)
 
 [node name="Polygon2D6" type="Polygon2D" parent="Tiles/Polyterrains3" index="7"]
 position = Vector2(256, 0)
-color = Color(0.509804, 0.509804, 0.509804, 1)
+texture = ExtResource("4_l4jml")
 polygon = PackedVector2Array(17536, -64, 17536, 224, 17696, 352, 18048, 352, 18208, 0, 18208, -704, 18080, -1088, 17952, -832)
 
 [node name="TileCollision" type="TileMap" parent="Tiles" index="2"]

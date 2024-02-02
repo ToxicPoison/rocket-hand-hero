@@ -17,6 +17,7 @@ func _ready():
 				var lines := Line2D.new()
 				lines.closed = true
 				lines.position = child.position
+				lines.rotation = child.rotation
 				lines.scale = child.scale
 				lines.points = child.polygon
 				lines.default_color = Color.BLACK
@@ -28,6 +29,7 @@ func _ready():
 				var shade := Polygon2D.new()
 				shade.polygon = child.polygon
 				shade.position = child.position
+				shade.rotation = child.rotation
 				shade.scale = child.scale
 				shade.color = shade_color
 				var poly_size : int = shade.polygon.size()

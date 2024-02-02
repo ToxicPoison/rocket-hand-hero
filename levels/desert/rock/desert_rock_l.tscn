@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://jjc0nncna5w"]
+
+[ext_resource type="Texture2D" uid="uid://cci7dk8n8lpt8" path="res://levels/desert/rock/sprite/desert_rock_l.png" id="1_hqgx4"]
+
+[node name="DesertRockL" type="StaticBody2D"]
+
+[node name="DesertRockL" type="Sprite2D" parent="."]
+texture = ExtResource("1_hqgx4")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(11, -35, 35, -34, 48, -25, 59, 28, 34, 39, -11, 47, -46, 36, -59, 13, -32, -26, -11, -47)

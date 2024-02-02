@@ -40,6 +40,12 @@ func _process(delta):
 	mpos *= Vector2.ONE / camera.zoom
 	cursor.position = mpos
 	
+	# Change sprite if using the rocket
+	if $Rocket/Sprite2D.visible:
+		$Rotators/Player.animation = "rocketing"
+	else:
+		$Rotators/Player.animation = "default"
+	
 	# Jump by swiping up
 	const min_swipe_speed = 1000
 	wanna_jump = Input.is_action_pressed("walk") and Input.get_last_mouse_velocity().y < -min_swipe_speed

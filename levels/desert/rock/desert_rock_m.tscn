@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b41uv2ftqhmtf"]
+
+[ext_resource type="Texture2D" uid="uid://dn2vdq2lvxpn5" path="res://levels/desert/rock/sprite/desert_rock_m.png" id="1_snajy"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p4bw0"]
+radius = 17.75
+height = 48.35
+
+[node name="DesertRockM" type="StaticBody2D"]
+
+[node name="DesertRockM" type="Sprite2D" parent="."]
+texture = ExtResource("1_snajy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.40301
+shape = SubResource("CapsuleShape2D_p4bw0")
