@@ -15,11 +15,6 @@ run/main_scene="res://levels/desert/desert.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
-[autoload]
-
-WatchList="*res://global/watch_list.tscn"
-PhysicsSetup="*res://global/physics_setup.gd"
-
 [display]
 
 window/size/viewport_width=1280
@@ -54,11 +49,6 @@ respawn={
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":256,"position":Vector2(108, 16),"global_position":Vector2(112, 59),"factor":1.0,"button_index":9,"canceled":false,"pressed":true,"double_click":false,"script":null)
 , Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":4,"position":Vector2(208, 11),"global_position":Vector2(212, 54),"factor":1.0,"button_index":3,"canceled":false,"pressed":true,"double_click":false,"script":null)
 , Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":128,"position":Vector2(137, 16),"global_position":Vector2(141, 59),"factor":1.0,"button_index":8,"canceled":false,"pressed":true,"double_click":false,"script":null)
-]
-}
-debug={
-"deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":96,"key_label":0,"unicode":96,"echo":false,"script":null)
 ]
 }
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cwecc26o4nx67"]
+[gd_scene load_steps=20 format=3 uid="uid://cwecc26o4nx67"]
 
 [ext_resource type="PackedScene" uid="uid://byo2jbqod50a5" path="res://levels/level_template.tscn" id="1_en44c"]
 [ext_resource type="PackedScene" uid="uid://2apd4uba4ayb" path="res://features/kill-wall/kill_flowers.tscn" id="3_c10be"]
@@ -12,8 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://hucckqgwvx77" path="res://features/fuel-node/fuel_node_bar.tscn" id="7_ilcpe"]
 [ext_resource type="Script" path="res://features/killzone/killzone.gd" id="11_i5aap"]
 [ext_resource type="Texture2D" uid="uid://57tdcboxgmui" path="res://levels/test/test-background.png" id="12_pfy80"]
-[ext_resource type="PackedScene" uid="uid://j8lmh7nrek1d" path="res://features/swing-node/swing_node_bar.tscn" id="12_ydgnj"]
-[ext_resource type="PackedScene" uid="uid://bepcokc7w2qw2" path="res://features/swing-node/swing_node.tscn" id="14_grnqa"]
 
 [sub_resource type="TileSet" id="TileSet_dobqw"]
 tile_size = Vector2i(64, 64)
@@ -24,293 +22,130 @@ texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/terrain_set = 0
 0:0/0/terrain = 0
-0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_0/angular_velocity = 0.0
 0:0/0/terrains_peering_bit/bottom_right_corner = 0
 0:0/0/terrains_peering_bit/bottom_left_corner = 0
 0:0/0/terrains_peering_bit/top_left_corner = 0
 0:0/0/terrains_peering_bit/top_right_corner = 0
 2:0/0 = 0
-2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:0/0/physics_layer_0/angular_velocity = 0.0
 3:0/0 = 0
-3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-3:0/0/physics_layer_0/angular_velocity = 0.0
 4:0/0 = 0
-4:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-4:0/0/physics_layer_0/angular_velocity = 0.0
 5:0/0 = 0
-5:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-5:0/0/physics_layer_0/angular_velocity = 0.0
 6:0/0 = 0
-6:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-6:0/0/physics_layer_0/angular_velocity = 0.0
 7:0/0 = 0
-7:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-7:0/0/physics_layer_0/angular_velocity = 0.0
 8:0/0 = 0
-8:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-8:0/0/physics_layer_0/angular_velocity = 0.0
 9:0/0 = 0
-9:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-9:0/0/physics_layer_0/angular_velocity = 0.0
 10:0/0 = 0
-10:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-10:0/0/physics_layer_0/angular_velocity = 0.0
 11:0/0 = 0
-11:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-11:0/0/physics_layer_0/angular_velocity = 0.0
 12:0/0 = 0
-12:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-12:0/0/physics_layer_0/angular_velocity = 0.0
 13:0/next_alternative_id = 3
 13:0/0 = 0
-13:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-13:0/0/physics_layer_0/angular_velocity = 0.0
 0:1/0 = 0
 0:1/0/terrain_set = 0
-0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:1/0/physics_layer_0/angular_velocity = 0.0
 0:1/0/terrains_peering_bit/bottom_right_corner = 0
 1:1/0 = 0
 1:1/0/terrain_set = 0
-1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:1/0/physics_layer_0/angular_velocity = 0.0
 1:1/0/terrains_peering_bit/bottom_left_corner = 0
 2:1/0 = 0
-2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:1/0/physics_layer_0/angular_velocity = 0.0
 3:1/0 = 0
-3:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-3:1/0/physics_layer_0/angular_velocity = 0.0
 4:1/0 = 0
-4:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-4:1/0/physics_layer_0/angular_velocity = 0.0
 5:1/0 = 0
-5:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-5:1/0/physics_layer_0/angular_velocity = 0.0
 6:1/0 = 0
-6:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-6:1/0/physics_layer_0/angular_velocity = 0.0
 7:1/0 = 0
-7:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-7:1/0/physics_layer_0/angular_velocity = 0.0
 8:1/0 = 0
-8:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-8:1/0/physics_layer_0/angular_velocity = 0.0
 9:1/0 = 0
-9:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-9:1/0/physics_layer_0/angular_velocity = 0.0
 10:1/0 = 0
-10:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-10:1/0/physics_layer_0/angular_velocity = 0.0
 11:1/0 = 0
-11:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-11:1/0/physics_layer_0/angular_velocity = 0.0
 12:1/0 = 0
-12:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-12:1/0/physics_layer_0/angular_velocity = 0.0
 13:1/0 = 0
-13:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-13:1/0/physics_layer_0/angular_velocity = 0.0
 0:2/0 = 0
 0:2/0/terrain_set = 0
-0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:2/0/physics_layer_0/angular_velocity = 0.0
 0:2/0/terrains_peering_bit/top_right_corner = 0
 1:2/0 = 0
 1:2/0/terrain_set = 0
-1:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:2/0/physics_layer_0/angular_velocity = 0.0
 1:2/0/terrains_peering_bit/top_left_corner = 0
 2:2/0 = 0
 2:2/0/terrain_set = 0
-2:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:2/0/physics_layer_0/angular_velocity = 0.0
 2:2/0/terrains_peering_bit/bottom_right_corner = 0
 2:2/0/terrains_peering_bit/bottom_left_corner = 0
 2:2/0/terrains_peering_bit/top_right_corner = 0
 3:2/0 = 0
 3:2/0/terrain_set = 0
-3:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-3:2/0/physics_layer_0/angular_velocity = 0.0
 3:2/0/terrains_peering_bit/bottom_right_corner = 0
 3:2/0/terrains_peering_bit/bottom_left_corner = 0
 3:2/0/terrains_peering_bit/top_left_corner = 0
 4:2/0 = 0
-4:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-4:2/0/physics_layer_0/angular_velocity = 0.0
 5:2/0 = 0
-5:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-5:2/0/physics_layer_0/angular_velocity = 0.0
 6:2/0 = 0
-6:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-6:2/0/physics_layer_0/angular_velocity = 0.0
 7:2/0 = 0
-7:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-7:2/0/physics_layer_0/angular_velocity = 0.0
 8:2/0 = 0
-8:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-8:2/0/physics_layer_0/angular_velocity = 0.0
 9:2/0 = 0
-9:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-9:2/0/physics_layer_0/angular_velocity = 0.0
 10:2/0 = 0
-10:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-10:2/0/physics_layer_0/angular_velocity = 0.0
 11:2/0 = 0
-11:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-11:2/0/physics_layer_0/angular_velocity = 0.0
 0:3/0 = 0
-0:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:3/0/physics_layer_0/angular_velocity = 0.0
 1:3/0 = 0
-1:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:3/0/physics_layer_0/angular_velocity = 0.0
 2:3/0 = 0
 2:3/0/terrain_set = 0
-2:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:3/0/physics_layer_0/angular_velocity = 0.0
 2:3/0/terrains_peering_bit/bottom_right_corner = 0
 2:3/0/terrains_peering_bit/top_left_corner = 0
 2:3/0/terrains_peering_bit/top_right_corner = 0
 3:3/0 = 0
 3:3/0/terrain_set = 0
-3:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-3:3/0/physics_layer_0/angular_velocity = 0.0
 3:3/0/terrains_peering_bit/bottom_left_corner = 0
 3:3/0/terrains_peering_bit/top_left_corner = 0
 3:3/0/terrains_peering_bit/top_right_corner = 0
 4:3/0 = 0
-4:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-4:3/0/physics_layer_0/angular_velocity = 0.0
 5:3/0 = 0
-5:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-5:3/0/physics_layer_0/angular_velocity = 0.0
 6:3/0 = 0
-6:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-6:3/0/physics_layer_0/angular_velocity = 0.0
 7:3/0 = 0
-7:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-7:3/0/physics_layer_0/angular_velocity = 0.0
 8:3/0 = 0
-8:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-8:3/0/physics_layer_0/angular_velocity = 0.0
 9:3/0 = 0
-9:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-9:3/0/physics_layer_0/angular_velocity = 0.0
 10:3/0 = 0
-10:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-10:3/0/physics_layer_0/angular_velocity = 0.0
 11:3/0 = 0
-11:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-11:3/0/physics_layer_0/angular_velocity = 0.0
 0:4/0 = 0
-0:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:4/0/physics_layer_0/angular_velocity = 0.0
 1:4/0 = 0
-1:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:4/0/physics_layer_0/angular_velocity = 0.0
 2:4/0 = 0
 2:4/0/terrain_set = 0
-2:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:4/0/physics_layer_0/angular_velocity = 0.0
 2:4/0/terrains_peering_bit/bottom_right_corner = 0
 2:4/0/terrains_peering_bit/bottom_left_corner = 0
 3:4/0 = 0
 3:4/0/terrain_set = 0
-3:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-3:4/0/physics_layer_0/angular_velocity = 0.0
 3:4/0/terrains_peering_bit/bottom_left_corner = 0
 3:4/0/terrains_peering_bit/top_left_corner = 0
 4:4/0 = 0
-4:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-4:4/0/physics_layer_0/angular_velocity = 0.0
 5:4/0 = 0
-5:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-5:4/0/physics_layer_0/angular_velocity = 0.0
 6:4/0 = 0
-6:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-6:4/0/physics_layer_0/angular_velocity = 0.0
 7:4/0 = 0
-7:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-7:4/0/physics_layer_0/angular_velocity = 0.0
 8:4/0 = 0
-8:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-8:4/0/physics_layer_0/angular_velocity = 0.0
 9:4/0 = 0
-9:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-9:4/0/physics_layer_0/angular_velocity = 0.0
 10:4/0 = 0
-10:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-10:4/0/physics_layer_0/angular_velocity = 0.0
 11:4/0 = 0
-11:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-11:4/0/physics_layer_0/angular_velocity = 0.0
 0:5/0 = 0
-0:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:5/0/physics_layer_0/angular_velocity = 0.0
 1:5/0 = 0
-1:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:5/0/physics_layer_0/angular_velocity = 0.0
 2:5/0 = 0
 2:5/0/terrain_set = 0
-2:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:5/0/physics_layer_0/angular_velocity = 0.0
 2:5/0/terrains_peering_bit/bottom_right_corner = 0
 2:5/0/terrains_peering_bit/top_right_corner = 0
 3:5/0 = 0
 3:5/0/terrain_set = 0
-3:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-3:5/0/physics_layer_0/angular_velocity = 0.0
 3:5/0/terrains_peering_bit/top_left_corner = 0
 3:5/0/terrains_peering_bit/top_right_corner = 0
 4:5/0 = 0
-4:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-4:5/0/physics_layer_0/angular_velocity = 0.0
 5:5/0 = 0
-5:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-5:5/0/physics_layer_0/angular_velocity = 0.0
 6:5/0 = 0
-6:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-6:5/0/physics_layer_0/angular_velocity = 0.0
 7:5/0 = 0
-7:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-7:5/0/physics_layer_0/angular_velocity = 0.0
 8:5/0 = 0
-8:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-8:5/0/physics_layer_0/angular_velocity = 0.0
 9:5/0 = 0
-9:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-9:5/0/physics_layer_0/angular_velocity = 0.0
 10:5/0 = 0
-10:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-10:5/0/physics_layer_0/angular_velocity = 0.0
 11:5/0 = 0
-11:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-11:5/0/physics_layer_0/angular_velocity = 0.0
 0:6/0 = 0
-0:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:6/0/physics_layer_0/angular_velocity = 0.0
 1:6/0 = 0
-1:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:6/0/physics_layer_0/angular_velocity = 0.0
 2:6/0 = 0
-2:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:6/0/physics_layer_0/angular_velocity = 0.0
 3:6/0 = 0
-3:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-3:6/0/physics_layer_0/angular_velocity = 0.0
 2:7/0 = 0
-2:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:7/0/physics_layer_0/angular_velocity = 0.0
 3:7/0 = 0
-3:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-3:7/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSet" id="TileSet_u2t4s"]
 tile_size = Vector2i(64, 64)
-physics_layer_0/collision_layer = 1
 terrain_set_0/mode = 1
 terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
@@ -322,11 +157,11 @@ size = Vector2(7349.25, 377)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ol8xm"]
 size = Vector2(7896.5, 377)
 
-[sub_resource type="Gradient" id="Gradient_r4ae1"]
+[sub_resource type="Gradient" id="Gradient_s6i5k"]
 colors = PackedColorArray(0.943742, 0.876227, 0.931447, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_ipdy5"]
-gradient = SubResource("Gradient_r4ae1")
+gradient = SubResource("Gradient_s6i5k")
 width = 1280
 height = 720
 fill_from = Vector2(1, 1)
@@ -401,22 +236,22 @@ polygon = PackedVector2Array(-400, -726, -552, -795, -680, -990, -666, -1190, -5
 [node name="Polygon2D7" type="Polygon2D" parent="Tiles/Polyterrains" index="7"]
 position = Vector2(5086, -43)
 texture = ExtResource("5_ie18j")
-polygon = PackedVector2Array(569, -1992, 641, -2094, 694, -2122, 891, -2138, 1073, -2116, 1103, -2056, 1125, -1946, 1136, -1896, 1153, -1884, 1172, -1885, 1189, -1932, 1197, -2072, 1241, -2116, 1376, -2146, 1673, -2123, 1835, -2066, 1876, -1936, 1960, -1889, 2184, -1850, 2249, -1814, 2335, -1809, 2425, -1816, 2472, -1873, 2597, -1878, 2630, -1926, 2633, -2089, 2606, -2251, 2667, -2275, 2926, -2255, 3161, -2266, 3341, -2478, 3547, -2960, 3730, -3164, 3765, -3389, 3773, -3824, 3758, -3912, 3548, -3955, 3273, -3978, 3325, -3748, 3224, -3518, 2716, -3481, 2102, -3534, 1981, -3788, 2102, -3997, 1900, -4019, 1676, -3933, -1258, -4508, -1296, -2121)
+polygon = PackedVector2Array(569, -1992, 641, -2094, 694, -2122, 891, -2138, 1073, -2116, 1103, -2056, 1125, -1946, 1136, -1896, 1153, -1884, 1172, -1885, 1189, -1932, 1197, -2072, 1241, -2116, 1376, -2146, 1673, -2123, 1835, -2066, 1876, -1936, 1960, -1889, 2184, -1850, 2249, -1814, 2335, -1809, 2425, -1816, 2472, -1873, 2597, -1878, 2630, -1926, 2633, -2089, 2606, -2251, 2667, -2275, 2926, -2255, 3161, -2266, 3341, -2478, 3547, -2960, 3730, -3164, 3765, -3389, 3778, -4316, 3780, -4810, -1258, -4508, -1296, -2121)
 
-[node name="Polygon2D9" type="Polygon2D" parent="Tiles/Polyterrains" index="8"]
-position = Vector2(4937, 54)
-texture = ExtResource("5_ie18j")
-polygon = PackedVector2Array(3945, -4354, 4091, -4265, 4038, -4131, 3834, -4145, 3788, -4275)
-
-[node name="Polygon2D8" type="Polygon2D" parent="Tiles/Polyterrains" index="9"]
+[node name="Polygon2D8" type="Polygon2D" parent="Tiles/Polyterrains" index="8"]
 position = Vector2(5086, -43)
 texture = ExtResource("5_ie18j")
-polygon = PackedVector2Array(3869, -1555, 4034, -1556, 4170, -1556, 4141, -1460, 4055, -1455, 3930, -1419, 3887, -1439, 3863, -1484)
+polygon = PackedVector2Array(3869, -1555, 4006, -1555, 4006, -1486, 3963, -1427, 3930, -1419, 3887, -1439, 3863, -1484)
+
+[node name="Polygon2D9" type="Polygon2D" parent="Tiles/Polyterrains" index="9"]
+position = Vector2(5086, -43)
+texture = ExtResource("5_ie18j")
+polygon = PackedVector2Array(4257, -1491, 4386, -1492, 4387, -1422, 4356, -1378, 4310, -1357, 4268, -1390)
 
 [node name="Polygon2D10" type="Polygon2D" parent="Tiles/Polyterrains" index="10"]
 position = Vector2(5086, -43)
 texture = ExtResource("5_ie18j")
-polygon = PackedVector2Array(4476, -1557, 4821, -1555, 4779, -1516, 4739, -1458, 4659, -1436, 4571, -1465, 4498, -1449)
+polygon = PackedVector2Array(4574, -1557, 4777, -1557, 4774, -1528, 4739, -1458, 4659, -1436, 4595, -1449)
 
 [node name="Polygon2D11" type="Polygon2D" parent="Tiles/Polyterrains" index="11"]
 position = Vector2(5086, -43)
@@ -590,21 +425,6 @@ rotation = -1.57079
 position = Vector2(5548, -768)
 rotation = -1.57079
 
-[node name="KillFlowers" parent="Interactable/KillWalls" index="38" instance=ExtResource("3_c10be")]
-position = Vector2(7802, -3549)
-
-[node name="KillFlowers40" parent="Interactable/KillWalls" index="39" instance=ExtResource("3_c10be")]
-position = Vector2(7912, -3550)
-
-[node name="KillFlowers41" parent="Interactable/KillWalls" index="40" instance=ExtResource("3_c10be")]
-position = Vector2(8124, -3569)
-
-[node name="KillFlowers42" parent="Interactable/KillWalls" index="41" instance=ExtResource("3_c10be")]
-position = Vector2(7609, -3565)
-
-[node name="KillFlowers43" parent="Interactable/KillWalls" index="42" instance=ExtResource("3_c10be")]
-position = Vector2(7314, -3590)
-
 [node name="Checkpoint" parent="Interactable" index="1" instance=ExtResource("4_88lqw")]
 position = Vector2(3584, -160)
 
@@ -618,13 +438,13 @@ position = Vector2(5184, -864)
 position = Vector2(7424, -1760)
 
 [node name="Checkpoint5" parent="Interactable" index="5" instance=ExtResource("4_88lqw")]
-position = Vector2(9421, -3258)
+position = Vector2(11104, -3232)
 
 [node name="FuelNode" parent="Interactable" index="6" instance=ExtResource("5_gvto2")]
 position = Vector2(2496, -256)
 
 [node name="FuelNode6" parent="Interactable" index="7" instance=ExtResource("5_gvto2")]
-position = Vector2(7940, -4228)
+position = Vector2(10752, -3456)
 
 [node name="FuelNode2" parent="Interactable" index="8" instance=ExtResource("5_gvto2")]
 position = Vector2(4032, -192)
@@ -655,21 +475,6 @@ shape = SubResource("RectangleShape2D_8lqy7")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Interactable/Killzone" index="1"]
 position = Vector2(11388.8, -702)
 shape = SubResource("RectangleShape2D_ol8xm")
-
-[node name="SwingNodeBar" parent="Interactable" index="15" instance=ExtResource("12_ydgnj")]
-position = Vector2(8851, -3457)
-rotation = -3.14159
-
-[node name="SwingNodeBar2" parent="Interactable" index="16" instance=ExtResource("12_ydgnj")]
-position = Vector2(8852, -3642)
-rotation = -3.14159
-
-[node name="SwingNodeBar3" parent="Interactable" index="17" instance=ExtResource("12_ydgnj")]
-position = Vector2(8857, -3824)
-rotation = -3.14159
-
-[node name="SwingNode" parent="Interactable" index="18" instance=ExtResource("14_grnqa")]
-position = Vector2(8817, -4092)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." index="3"]
 

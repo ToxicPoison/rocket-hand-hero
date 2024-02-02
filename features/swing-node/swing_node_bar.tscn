@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://cip8k32ju3khs" path="res://features/swing-node/swing_node_bar.png" id="1_honpk"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_oj8y2"]
-radius = 66.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mi3rj"]
+size = Vector2(104, 58)
 
 [node name="SwingNodeBar" type="Node2D"]
 texture_filter = 1
@@ -16,4 +16,4 @@ offset = Vector2(-64, 0)
 position = Vector2(-98, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_oj8y2")
+shape = SubResource("RectangleShape2D_mi3rj")

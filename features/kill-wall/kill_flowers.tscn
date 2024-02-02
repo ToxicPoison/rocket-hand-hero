@@ -7,7 +7,7 @@
 size = Vector2(108, 20)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v5ebw"]
-radius = 255.0
+radius = 167.012
 
 [node name="KillFlowers" type="Node2D"]
 texture_filter = 1
@@ -16,7 +16,7 @@ script = ExtResource("1_rfuh1")
 [node name="KillFlowers" type="Sprite2D" parent="."]
 z_index = 1
 texture = ExtResource("2_wrr11")
-hframes = 4
+hframes = 2
 
 [node name="Area2D" type="Area2D" parent="."]
 
