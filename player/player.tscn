@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dbs4185ihbvwl"]
+[gd_scene load_steps=28 format=3 uid="uid://dbs4185ihbvwl"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_6tb6q"]
 [ext_resource type="Texture2D" uid="uid://qjmndbkufmvw" path="res://player/player.png" id="1_7tm1o"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://player/rocket.gd" id="2_mt6ie"]
 [ext_resource type="Texture2D" uid="uid://pdrhtwwqdda3" path="res://normal sphere mask.png" id="3_2p3he"]
 [ext_resource type="Texture2D" uid="uid://c1dj65jh6amsx" path="res://player/fuel_pack_full.png" id="3_ed6i6"]
+[ext_resource type="Texture2D" uid="uid://dpfyobrwemfxt" path="res://player/player_rocketing.png" id="4_a0hp0"]
 [ext_resource type="Script" path="res://player/camera.gd" id="4_o4o6o"]
 [ext_resource type="Texture2D" uid="uid://chd1yidtl8e41" path="res://player/rocket_hand.png" id="5_22uj2"]
 [ext_resource type="Script" path="res://player/grapple.gd" id="5_aa6iw"]
@@ -19,6 +20,25 @@
 [ext_resource type="AudioStream" uid="uid://bb3loj8skqrh7" path="res://player/death.wav" id="14_l5fqh"]
 [ext_resource type="AudioStream" uid="uid://oib7nfeyeyda" path="res://player/step.wav" id="15_ao1tg"]
 [ext_resource type="Script" path="res://player/normal.gd" id="17_0rjuf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rgkbd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_7tm1o")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_a0hp0")
+}],
+"loop": true,
+"name": &"rocketing",
+"speed": 5.0
+}]
 
 [sub_resource type="Gradient" id="Gradient_ahlhs"]
 offsets = PackedFloat32Array(0, 0.083612, 0.237458, 1)
@@ -54,22 +74,27 @@ fill_mode = 3
 texture_under = ExtResource("2_ma60k")
 texture_progress = ExtResource("3_ed6i6")
 
-[node name="Player" type="Sprite2D" parent="Rotators"]
-texture = ExtResource("1_7tm1o")
+[node name="Player" type="AnimatedSprite2D" parent="Rotators"]
+sprite_frames = SubResource("SpriteFrames_rgkbd")
 offset = Vector2(0, -32)
 
 [node name="RocketOrigin" type="Node2D" parent="Rotators"]
-position = Vector2(11, -27)
+position = Vector2(-14, -28)
 
 [node name="GrappleOrigin" type="Node2D" parent="Rotators"]
 position = Vector2(11, -27)
 
 [node name="Rocket" type="Node2D" parent="."]
-position = Vector2(7, -30)
+position = Vector2(-14, -28)
 script = ExtResource("2_mt6ie")
 gradient = SubResource("Gradient_ahlhs")
 
+[node name="Sprite2D" type="Sprite2D" parent="Rocket"]
+position = Vector2(17, 1)
+texture = ExtResource("5_22uj2")
+
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Rocket"]
+position = Vector2(22, 1)
 emitting = false
 amount = 128
 texture = ExtResource("3_2p3he")
@@ -81,10 +106,6 @@ initial_velocity_max = 500.0
 scale_amount_curve = SubResource("Curve_6o1tf")
 color = Color(0.560784, 0.854902, 0.996078, 1)
 color_ramp = SubResource("Gradient_bla7j")
-
-[node name="Sprite2D" type="Sprite2D" parent="Rocket"]
-position = Vector2(0, 2)
-texture = ExtResource("5_22uj2")
 
 [node name="RocketSound" type="AudioStreamPlayer2D" parent="Rocket"]
 stream = ExtResource("6_na1dq")
