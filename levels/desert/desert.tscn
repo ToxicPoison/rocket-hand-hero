@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cwecc26o4nx67"]
+[gd_scene load_steps=26 format=3 uid="uid://cwecc26o4nx67"]
 
 [ext_resource type="PackedScene" uid="uid://byo2jbqod50a5" path="res://levels/level_template.tscn" id="1_en44c"]
 [ext_resource type="PackedScene" uid="uid://2apd4uba4ayb" path="res://features/kill-wall/kill_flowers.tscn" id="3_c10be"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" path="res://features/killzone/killzone.gd" id="11_i5aap"]
 [ext_resource type="Texture2D" uid="uid://57tdcboxgmui" path="res://levels/test/test-background.png" id="12_pfy80"]
 [ext_resource type="PackedScene" uid="uid://dc1t8pltp5bdp" path="res://features/goal/goal.tscn" id="17_g2rkr"]
+[ext_resource type="AudioStream" uid="uid://ccr3e30pye0cw" path="res://desert.ogg" id="18_r15no"]
 
 [sub_resource type="TileSet" id="TileSet_dobqw"]
 tile_size = Vector2i(64, 64)
@@ -848,5 +849,10 @@ texture = ExtResource("12_pfy80")
 
 [node name="Goal" parent="." index="5" instance=ExtResource("17_g2rkr")]
 position = Vector2(13253, -13298)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="6"]
+stream = ExtResource("18_r15no")
+volume_db = -3.0
+autoplay = true
 
 [editable path="Interactable/Checkpoints/Checkpoint"]
