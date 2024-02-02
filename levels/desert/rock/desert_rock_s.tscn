@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://boirvb6n86s3x"]
+
+[ext_resource type="Texture2D" uid="uid://c0fri814ecdo1" path="res://levels/desert/rock/sprite/desert_rock_s.png" id="1_4qfpr"]
+
+[node name="DesertRockS" type="Sprite2D"]
+texture_filter = 1
+texture = ExtResource("1_4qfpr")
