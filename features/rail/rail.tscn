@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://features/rail/rail.gd" id="1_hvrjv"]
 [ext_resource type="AudioStream" uid="uid://bwseuor0lroad" path="res://features/rail/rail_mount.wav" id="2_uxhbj"]
 [ext_resource type="AudioStream" uid="uid://drmjc0l8emogo" path="res://features/rail/rail_slide.wav" id="3_yatbg"]
-[ext_resource type="AudioStream" uid="uid://o2ehnnatwe6g" path="res://player/grappled.wav" id="4_0cusp"]
+[ext_resource type="AudioStream" uid="uid://da22jqn1tfpgm" path="res://sounds/GrappleHit.wav" id="4_41jl0"]
 [ext_resource type="Texture2D" uid="uid://bdxja4pg44rhg" path="res://player/crosshair.png" id="5_r8iay"]
 
 [node name="Rail" type="Path2D"]
@@ -30,7 +30,7 @@ pitch_scale = 1.75
 stream = ExtResource("3_yatbg")
 
 [node name="Mount" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_0cusp")
+stream = ExtResource("4_41jl0")
 volume_db = -5.716
 pitch_scale = 2.2
 

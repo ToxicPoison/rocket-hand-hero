@@ -6,7 +6,7 @@ extends Node2D
 
 @export var line_weight := 3.0
 @export var shade_dist : float = 16.0
-@export var shade_color : Color = Color(0.0, 0.02, 0.05)
+@export var shade_color : Color = Color(0.0, 0.02, 0.05, 1.0)
 
 func _ready():
 	for child in get_children():
@@ -31,7 +31,7 @@ func _ready():
 				shade.position = child.position
 				shade.rotation = child.rotation
 				shade.scale = child.scale
-				shade.color = shade_color
+				shade.modulate = shade_color
 				var poly_size : int = shade.polygon.size()
 				for i in poly_size:
 					var vlast : Vector2 = child.polygon[(i - 1) % poly_size]
@@ -44,6 +44,8 @@ func _ready():
 					else:
 						shade.polygon[i] = vert - dir * shade_dist
 				if $Shade: $Shade.add_child(shade)
+				
+				
 			
 			#make collisions
 			if make_collisions:

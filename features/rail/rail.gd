@@ -104,4 +104,3 @@ func get_tangent(pt, point_is_global) -> Vector2:
 	#$To.position = pt
 	#$Fro.position = pt2
 	return (pt2 - pt).normalized()
-
