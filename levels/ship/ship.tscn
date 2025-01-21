@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://ggac01vndpfq"]
+[gd_scene load_steps=23 format=4 uid="uid://ggac01vndpfq"]
 
 [ext_resource type="PackedScene" uid="uid://byo2jbqod50a5" path="res://levels/level_template.tscn" id="1_j4pkv"]
 [ext_resource type="Texture2D" uid="uid://d2qq5wjgmr6ko" path="res://levels/ship/ship_background_layers/ship_background_0.png" id="2_ggb3q"]
@@ -15,11 +15,12 @@
 [ext_resource type="Texture2D" uid="uid://dnbu0rvloxkw7" path="res://levels/ship/ship_background_layers/ship_background_5.png" id="7_3m0gb"]
 [ext_resource type="Script" path="res://features/killzone/killzone.gd" id="8_djbfh"]
 [ext_resource type="Texture2D" uid="uid://b7uj7702i5b3l" path="res://levels/ship/ship_background_layers/ship_background_6.png" id="8_xtwha"]
-[ext_resource type="Texture2D" uid="uid://7ad18fab3sl5" path="res://white-square.png" id="9_1xr28"]
+[ext_resource type="Texture2D" uid="uid://7ad18fab3sl5" path="res://triangle_light.png" id="9_1xr28"]
 [ext_resource type="Texture2D" uid="uid://cpskncosd2c7n" path="res://levels/ship/ship_background_simplified_layers/ship_background_simplified_0.png" id="9_grdcl"]
 [ext_resource type="Texture2D" uid="uid://baqsvam3regeu" path="res://levels/ship/ship_background_simplified_layers/ship_background_simplified_1.png" id="10_gccgv"]
 [ext_resource type="Texture2D" uid="uid://dafr8g62eq44a" path="res://levels/ship/ship_background_simplified_layers/ship_background_simplified_2.png" id="11_3mlk3"]
 [ext_resource type="Texture2D" uid="uid://dvf25b8vhht4" path="res://levels/ship/ship_background_simplified_layers/ship_background_simplified_3.png" id="12_1hsee"]
+[ext_resource type="Texture2D" uid="uid://baxg2qn44uhmp" path="res://white_square.png" id="20_hnrdk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3igt5"]
 size = Vector2(2144, 384)
@@ -96,7 +97,6 @@ texture = ExtResource("8_xtwha")
 
 [node name="BackgroundSimple" type="CanvasLayer" parent="." index="1"]
 layer = -5
-visible = false
 follow_viewport_enabled = true
 
 [node name="ParallaxLayer" type="Parallax2D" parent="BackgroundSimple" index="0"]
@@ -111,32 +111,38 @@ texture = ExtResource("9_grdcl")
 
 [node name="ParallaxLayer2" type="Parallax2D" parent="BackgroundSimple" index="1"]
 texture_filter = 1
-scroll_scale = Vector2(0.1, 0)
+scroll_scale = Vector2(0.4, 0.4)
 repeat_size = Vector2(1280, 0)
 
 [node name="ShipBackgroundSimplified0" type="Sprite2D" parent="BackgroundSimple/ParallaxLayer2" index="0"]
-position = Vector2(640, 352)
+position = Vector2(640, 128)
 texture = ExtResource("10_gccgv")
 
 [node name="ParallaxLayer3" type="Parallax2D" parent="BackgroundSimple" index="2"]
 texture_filter = 1
-scroll_scale = Vector2(0.2, 0)
+scroll_scale = Vector2(0.5, 0.5)
 repeat_size = Vector2(1280, 0)
 
 [node name="ShipBackgroundSimplified0" type="Sprite2D" parent="BackgroundSimple/ParallaxLayer3" index="0"]
-position = Vector2(640, 352)
+position = Vector2(640, 224)
 texture = ExtResource("11_3mlk3")
 
 [node name="ParallaxLayer4" type="Parallax2D" parent="BackgroundSimple" index="3"]
 texture_filter = 1
-scroll_scale = Vector2(0.3, 0)
+scroll_scale = Vector2(0.7, 0.7)
 repeat_size = Vector2(1280, 0)
 
 [node name="ShipBackgroundSimplified0" type="Sprite2D" parent="BackgroundSimple/ParallaxLayer4" index="0"]
-position = Vector2(640, 352)
+position = Vector2(640, 64)
 texture = ExtResource("12_1hsee")
 
-[node name="Player" parent="." index="2" instance=ExtResource("3_27cb2")]
+[node name="WhiteSquare" type="Sprite2D" parent="." index="2"]
+modulate = Color(0.226707, 0.226708, 0.226707, 0.172549)
+position = Vector2(3504, 16)
+scale = Vector2(4560, 944)
+texture = ExtResource("20_hnrdk")
+
+[node name="Player" parent="." index="3" instance=ExtResource("3_27cb2")]
 position = Vector2(-576, 0)
 start_with_rocket_fuel = false
 
@@ -228,8 +234,7 @@ player_path = NodePath("../../Player")
 position = Vector2(752, 0)
 shape = SubResource("RectangleShape2D_3igt5")
 
-[node name="Lighting" type="Node2D" parent="." index="5"]
-visible = false
+[node name="Lighting" type="Node2D" parent="." index="6"]
 
 [node name="PointLight2D" type="PointLight2D" parent="Lighting" index="0"]
 position = Vector2(-544, 160)
@@ -237,59 +242,87 @@ scale = Vector2(0.6875, 1.31318)
 color = Color(1, 0.576889, 0.372748, 1)
 texture = ExtResource("9_1xr28")
 
-[node name="PointLight2D6" type="PointLight2D" parent="Lighting" index="1"]
+[node name="PointLight2D3" type="PointLight2D" parent="Lighting" index="1"]
+position = Vector2(960, 96)
+rotation = 0.0651833
+scale = Vector2(0.6875, 1.31318)
+color = Color(1, 0.576889, 0.372748, 1)
+energy = 0.37
+texture = ExtResource("9_1xr28")
+
+[node name="PointLight2D6" type="PointLight2D" parent="Lighting" index="2"]
 position = Vector2(1344, 96)
 scale = Vector2(0.6875, 1.31318)
 color = Color(1, 0.576889, 0.372748, 1)
 texture = ExtResource("9_1xr28")
 
-[node name="PointLight2D7" type="PointLight2D" parent="Lighting" index="2"]
-position = Vector2(1952, 128)
-rotation = -0.58114
+[node name="PointLight2D7" type="PointLight2D" parent="Lighting" index="3"]
+position = Vector2(1888, -448)
+rotation = -2.74181
 scale = Vector2(0.6875, 1.31318)
 color = Color(1, 0.576889, 0.372748, 1)
 texture = ExtResource("9_1xr28")
 
-[node name="PointLight2D8" type="PointLight2D" parent="Lighting" index="3"]
+[node name="PointLight2D8" type="PointLight2D" parent="Lighting" index="4"]
 position = Vector2(2816, -7.62939e-05)
 rotation = -0.58114
 scale = Vector2(0.6875, 1.31318)
 color = Color(0.9885, 0.986222, 0.985675, 1)
 texture = ExtResource("9_1xr28")
 
-[node name="PointLight2D9" type="PointLight2D" parent="Lighting" index="4"]
+[node name="PointLight2D9" type="PointLight2D" parent="Lighting" index="5"]
 position = Vector2(2304, -32)
 rotation = 0.358242
 scale = Vector2(0.6875, 1.31318)
 color = Color(1, 0.576889, 0.372748, 1)
 texture = ExtResource("9_1xr28")
 
-[node name="PointLight2D2" type="PointLight2D" parent="Lighting" index="5"]
+[node name="PointLight2D2" type="PointLight2D" parent="Lighting" index="6"]
 position = Vector2(-160, 128)
 scale = Vector2(0.6875, 1.31318)
 color = Color(1, 0.576889, 0.372748, 1)
 texture = ExtResource("9_1xr28")
 
-[node name="PointLight2D3" type="PointLight2D" parent="Lighting" index="6"]
-position = Vector2(288, -288)
-rotation = 3.02575
+[node name="PointLight2D10" type="PointLight2D" parent="Lighting" index="7"]
+position = Vector2(3456, 224)
 scale = Vector2(0.6875, 1.31318)
-color = Color(0.999997, 0.222461, 0.328312, 1)
+color = Color(1, 0.576889, 0.372748, 1)
 texture = ExtResource("9_1xr28")
 
-[node name="PointLight2D5" type="PointLight2D" parent="Lighting" index="7"]
+[node name="PointLight2D11" type="PointLight2D" parent="Lighting" index="8"]
+position = Vector2(3872, -64)
+scale = Vector2(0.6875, 1.31318)
+color = Color(1, 0.576889, 0.372748, 1)
+texture = ExtResource("9_1xr28")
+
+[node name="PointLight2D12" type="PointLight2D" parent="Lighting" index="9"]
+position = Vector2(4192, -480)
+rotation = 2.72173
+scale = Vector2(0.6875, 1.31318)
+color = Color(0.732336, 0.693387, 0.6961, 1)
+texture = ExtResource("9_1xr28")
+
+[node name="PointLight2D13" type="PointLight2D" parent="Lighting" index="10"]
+position = Vector2(6368, -352)
+rotation = 3.57138
+scale = Vector2(0.6875, 1.31318)
+color = Color(0.732336, 0.693387, 0.6961, 1)
+texture = ExtResource("9_1xr28")
+
+[node name="PointLight2D5" type="PointLight2D" parent="Lighting" index="11"]
 position = Vector2(288, -320)
 rotation = 2.81157
 scale = Vector2(0.6875, 1.31318)
+color = Color(0.945816, 6.73831e-07, 0.487105, 1)
 texture = ExtResource("9_1xr28")
 
-[node name="PointLight2D4" type="PointLight2D" parent="Lighting" index="8"]
+[node name="PointLight2D4" type="PointLight2D" parent="Lighting" index="12"]
 position = Vector2(736, 128)
 rotation = -0.0570898
 scale = Vector2(0.6875, 1.31318)
-color = Color(0.482444, 0.988702, 1, 1)
+color = Color(6.54578e-06, 0.811582, 0.827605, 1)
 energy = 1.21
 texture = ExtResource("9_1xr28")
 
-[node name="CanvasModulate" type="CanvasModulate" parent="Lighting" index="9"]
-color = Color(0.468078, 0.504992, 0.594635, 1)
+[node name="CanvasModulate" type="CanvasModulate" parent="Lighting" index="13"]
+color = Color(0.820896, 0.839289, 0.882988, 1)
