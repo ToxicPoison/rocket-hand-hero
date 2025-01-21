@@ -1,0 +1,53 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://bg3o2gbcyndjb"]
+
+[ext_resource type="Texture2D" uid="uid://b78xui8kqh8he" path="res://levels/ship/ship_tileset.png" id="1_nkjeq"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b5r2r"]
+texture = ExtResource("1_nkjeq")
+texture_region_size = Vector2i(64, 64)
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+4:6/0 = 0
+4:7/0 = 0
+3:6/0 = 0
+2:6/0 = 0
+2:7/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+5:1/0 = 0
+5:3/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+6:3/0 = 0
+1:4/0 = 0
+1:3/0 = 0
+0:3/0 = 0
+0:4/0 = 0
+0:5/0 = 0
+0:6/0 = 0
+6:5/0 = 0
+6:6/0 = 0
+8:1/0 = 0
+8:2/0 = 0
+10:2/0 = 0
+10:1/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+8:0/0 = 0
+10:0/0 = 0
+12:3/0 = 0
+12:0/0 = 0
+12:1/0 = 0
+
+[resource]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_b5r2r")

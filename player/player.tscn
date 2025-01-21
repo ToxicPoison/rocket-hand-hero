@@ -61,7 +61,8 @@ size = Vector2(25, 54)
 
 [node name="Player" type="CharacterBody2D"]
 texture_filter = 1
-floor_snap_length = 3.0
+floor_max_angle = 0.872665
+floor_snap_length = 16.0
 script = ExtResource("1_6tb6q")
 
 [node name="Rotators" type="Node2D" parent="."]
