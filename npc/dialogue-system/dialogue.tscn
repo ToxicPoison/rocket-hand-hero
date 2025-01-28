@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://c2fuh22thm43f"]
+
+[ext_resource type="FontFile" uid="uid://bjcydj2stcgsr" path="res://fonts/BricksBlocks.ttf" id="1_axm8e"]
+[ext_resource type="Script" path="res://npc/dialogue-system/dialogue.gd" id="1_drsy0"]
+[ext_resource type="Texture2D" uid="uid://pdrhtwwqdda3" path="res://normal sphere mask.png" id="2_oefi1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xp3w7"]
+font = ExtResource("1_axm8e")
+
+[node name="Dialogue" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_drsy0")
+
+[node name="Background" type="Sprite2D" parent="."]
+modulate = Color(0.00351917, 0.00351917, 0.00351917, 1)
+texture = ExtResource("2_oefi1")
+
+[node name="Text" type="Label" parent="."]
+offset_bottom = 16.0
+size_flags_horizontal = 4
+text = "EVERYBODY SCREAM!
+yeah! everyone scream!"
+label_settings = SubResource("LabelSettings_xp3w7")
+
+[node name="Camera2D" type="Camera2D" parent="."]
