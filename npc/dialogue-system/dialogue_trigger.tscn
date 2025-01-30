@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://clwq56vnuywe0"]
+
+[ext_resource type="Script" path="res://npc/dialogue-system/dialogue_trigger.gd" id="1_rbnyq"]
+
+[node name="DialogueTriggerZone" type="Area2D"]
+script = ExtResource("1_rbnyq")

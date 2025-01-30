@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://ggac01vndpfq"]
+[gd_scene load_steps=26 format=4 uid="uid://ggac01vndpfq"]
 
 [ext_resource type="PackedScene" uid="uid://byo2jbqod50a5" path="res://levels/level_template.tscn" id="1_j4pkv"]
 [ext_resource type="Texture2D" uid="uid://d2qq5wjgmr6ko" path="res://levels/ship/ship_background_layers/ship_background_0.png" id="2_ggb3q"]
@@ -21,9 +21,14 @@
 [ext_resource type="Texture2D" uid="uid://dafr8g62eq44a" path="res://levels/ship/ship_background_simplified_layers/ship_background_simplified_2.png" id="11_3mlk3"]
 [ext_resource type="Texture2D" uid="uid://dvf25b8vhht4" path="res://levels/ship/ship_background_simplified_layers/ship_background_simplified_3.png" id="12_1hsee"]
 [ext_resource type="Texture2D" uid="uid://baxg2qn44uhmp" path="res://white_square.png" id="20_hnrdk"]
+[ext_resource type="PackedScene" uid="uid://c2fuh22thm43f" path="res://npc/dialogue-system/dialogue.tscn" id="22_ue4i0"]
+[ext_resource type="PackedScene" uid="uid://clwq56vnuywe0" path="res://npc/dialogue-system/dialogue_trigger.tscn" id="23_gew1f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3igt5"]
 size = Vector2(2144, 384)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bhg41"]
+size = Vector2(192, 1024)
 
 [node name="Ship" instance=ExtResource("1_j4pkv")]
 
@@ -143,7 +148,7 @@ scale = Vector2(4560, 944)
 texture = ExtResource("20_hnrdk")
 
 [node name="Player" parent="." index="3" instance=ExtResource("3_27cb2")]
-position = Vector2(-576, 0)
+position = Vector2(2848, -64)
 start_with_rocket_fuel = false
 
 [node name="Layer0" type="TileMapLayer" parent="Tiles" index="0"]
@@ -326,3 +331,47 @@ texture = ExtResource("9_1xr28")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="Lighting" index="13"]
 color = Color(0.820896, 0.839289, 0.882988, 1)
+
+[node name="Dialoguestuff" type="Node2D" parent="." index="7"]
+
+[node name="bigjump" parent="Dialoguestuff" index="0" instance=ExtResource("22_ue4i0")]
+position = Vector2(3451, -158)
+message = "Okay... one more!"
+follow_player = true
+player_path = NodePath("../../Player")
+
+[node name="bigjump2" parent="Dialoguestuff" index="1" instance=ExtResource("22_ue4i0")]
+position = Vector2(4064, -256)
+message = "Refuel and make this big jump up ahead!"
+follow_player = true
+player_path = NodePath("../../Player")
+
+[node name="DialogueTriggerZone" parent="Dialoguestuff" index="2" instance=ExtResource("23_gew1f")]
+position = Vector2(3456, -32)
+function = 2
+time_visible = 8.0
+trigger_once = false
+target_dialogue = NodePath("../bigjump")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Dialoguestuff/DialogueTriggerZone" index="0"]
+shape = SubResource("RectangleShape2D_bhg41")
+
+[node name="DialogueTriggerZone2" parent="Dialoguestuff" index="3" instance=ExtResource("23_gew1f")]
+position = Vector2(4000, -288)
+function = 2
+time_visible = 8.0
+trigger_once = false
+target_dialogue = NodePath("../bigjump2")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Dialoguestuff/DialogueTriggerZone2" index="0"]
+shape = SubResource("RectangleShape2D_bhg41")
+
+[node name="DialogueTriggerZone3" parent="Dialoguestuff" index="4" instance=ExtResource("23_gew1f")]
+position = Vector2(4384, -288)
+function = 1
+time_visible = 8.0
+trigger_once = false
+target_dialogue = NodePath("../bigjump2")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Dialoguestuff/DialogueTriggerZone3" index="0"]
+shape = SubResource("RectangleShape2D_bhg41")
